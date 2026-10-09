@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compete Caribbean+ · Dominica | B. Cuthbert John, PMP — Project Development Support</title>
+<style>
+  :root{
+    --navy:#0B1F3A; --navy-2:#122F55; --blue:#0057B8; --blue-2:#2C7BE5;
+    --cyan:#00A3E0; --teal:#0E9F9F; --green:#12A150; --green-2:#0B7C3C;
+    --amber:#D99400; --red:#C8102E; --violet:#6B4EE6;
+    --ink:#0E1B33; --text:#334155; --muted:#64748B;
+    --line:#E2E8F0; --line-2:#EDF1F7; --bg:#F5F8FC; --card:#FFFFFF;
+    --shadow:0 1px 3px rgba(11,31,58,.05), 0 8px 22px rgba(11,31,58,.06);
+    --shadow-lg:0 12px 32px rgba(11,31,58,.10);
+    --radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{color:var(--ink);line-height:1.25;font-weight:700}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .topbar{position:sticky;top:0;z-index:60;background:linear-gradient(90deg,#0B1F3A 0%,#122F55 55%,#1A4076 100%);color:#fff;display:flex;align-items:center;gap:16px;padding:11px 22px;flex-wrap:wrap;box-shadow:0 2px 16px rgba(0,20,60,.28)}
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .brand-mark{width:40px;height:40px;border-radius:10px;flex:0 0 auto;background:linear-gradient(135deg,#00A3E0,#7CD4F5);display:grid;place-items:center;font-weight:800;color:#0B1F3A;font-size:12.5px;letter-spacing:.5px}
+  .brand-text b{display:block;font-size:14.5px;letter-spacing:.2px}
+  .brand-text span{display:block;font-size:11px;opacity:.8;letter-spacing:.5px;text-transform:uppercase}
+  .topbar .spacer{flex:1}
+  .top-chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 12px;font-size:11.5px;white-space:nowrap;font-weight:600}
+  .btn{border:0;border-radius:9px;padding:8px 14px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:.16s}
+  .btn-light{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28)}
+  .btn-light:hover{background:rgba(255,255,255,.26)}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:#004494}
+  .btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+
+  .shell{display:flex;align-items:flex-start;max-width:1680px;margin:0 auto}
+  .sidebar{position:sticky;top:62px;width:262px;flex:0 0 262px;padding:18px 12px 60px 16px;max-height:calc(100vh - 62px);overflow-y:auto}
+  .sidebar h5{font-size:10.5px;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted);margin:16px 0 6px 10px;font-weight:800}
+  .nav-btn{display:flex;align-items:center;gap:9px;width:100%;background:transparent;border:0;text-align:left;padding:8px 11px;border-radius:9px;cursor:pointer;font-size:13.2px;color:#2B3B57;font-family:inherit;font-weight:500;border-left:3px solid transparent;transition:.14s}
+  .nav-btn:hover{background:#E9EFFA;color:var(--blue)}
+  .nav-btn.active{background:#E7EDF9;color:var(--navy);font-weight:700;border-left-color:var(--blue)}
+  .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex:0 0 auto;opacity:.5}
+  .nav-btn.active .nav-dot{opacity:1;background:var(--blue)}
+
+  .content{flex:1;min-width:0;padding:22px 28px 90px}
+  .panel{display:none;animation:fade .28s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .hero{background:linear-gradient(120deg,#0B1F3A 0%,#122F55 48%,#1E4D8F 100%);color:#fff;border-radius:16px;padding:28px 30px;margin-bottom:20px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+  .hero:after{content:"";position:absolute;right:-100px;top:-110px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(0,163,224,.42),transparent 68%)}
+  .hero h1{font-size:25px;letter-spacing:-.3px;margin-bottom:8px;color:#fff;position:relative;z-index:2}
+  .hero p{color:#D5E2F7;max-width:900px;font-size:13.8px;position:relative;z-index:2;margin-bottom:16px}
+  .hero-chips{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:2}
+  .hero-chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:5px 13px;font-size:12px;font-weight:600}
+  .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:2}
+  .hb{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:7px;padding:5px 11px;font-size:11.5px;font-weight:700;letter-spacing:.5px}
+  .hb.gold{border-color:#EAB308;color:#FDE047}
+  .hb.sky{border-color:#38BDF8;color:#BAE6FD}
+  .hb.green{border-color:#34D399;color:#A7F3D0}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);margin-bottom:16px}
+  .card.tight{padding:14px 16px}
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .card-head h3{font-size:15.5px}
+  .eyebrow{font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:6px}
+  .page-title{font-size:24px;letter-spacing:-.3px;margin-bottom:4px}
+  .page-sub{color:var(--muted);font-size:13.5px;margin-bottom:18px;max-width:980px}
+
+  .grid{display:grid;gap:14px}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  @media(max-width:1180px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:880px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .kpi:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--cyan)}
+  .kpi.k-blue:before{background:var(--blue)} .kpi.k-green:before{background:var(--green)}
+  .kpi.k-amber:before{background:var(--amber)} .kpi.k-violet:before{background:var(--violet)}
+  .kpi-val{font-size:25px;font-weight:800;letter-spacing:-.6px;line-height:1.1;color:var(--navy)}
+  .kpi-lab{font-size:11.4px;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;font-weight:700;margin-top:4px}
+
+  .phase-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;cursor:pointer;transition:.16s;box-shadow:var(--shadow);border-top:4px solid var(--line)}
+  .phase-card:hover{transform:translateY(-2px);border-color:var(--cyan)}
+  .phase-card.active{border-top-color:var(--blue);background:linear-gradient(180deg,#F7FAFF,#fff);box-shadow:var(--shadow-lg)}
+  .phase-card .pc-num{font-size:10.8px;font-weight:800;letter-spacing:1px;color:var(--cyan);text-transform:uppercase}
+  .phase-card h4{font-size:14.4px;margin:5px 0 6px}
+  .phase-card p{font-size:12.5px;color:var(--muted);margin:0}
+  .phase-card .pc-tag{display:inline-block;margin-top:10px;font-size:11px;font-weight:700;background:#E7EDF9;color:var(--navy);border-radius:6px;padding:3px 9px}
+
+  .wf-wrap{display:grid;grid-template-columns:270px 1fr;gap:16px}
+  @media(max-width:980px){.wf-wrap{grid-template-columns:1fr}}
+  .wf-list{display:flex;flex-direction:column;gap:8px}
+  .wf-item{text-align:left;background:#fff;border:1px solid var(--line);border-radius:11px;padding:11px 13px;cursor:pointer;font-family:inherit;transition:.14s}
+  .wf-item:hover{border-color:var(--cyan)}
+  .wf-item.active{border-color:var(--blue);background:#E7EDF9;box-shadow:inset 3px 0 0 var(--blue)}
+  .wf-item b{display:block;font-size:13.1px;color:var(--ink)}
+  .wf-item span{font-size:11.4px;color:var(--muted)}
+  .wf-detail{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .wf-detail h3{font-size:17px;margin-bottom:4px}
+  .wf-detail .wf-sub{color:var(--muted);font-size:12.8px;margin-bottom:14px}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:820px){.two-col{grid-template-columns:1fr}}
+
+  ul.clean{list-style:none;padding:0;margin:0}
+  ul.clean li{position:relative;padding-left:19px;margin-bottom:7px;font-size:13.05px;color:#28374F}
+  ul.clean li:before{content:"";position:absolute;left:2px;top:7px;width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+  ul.clean li.g:before{background:var(--green)}
+  ul.clean li.a:before{background:var(--amber)}
+  ul.clean li.v:before{background:var(--violet)}
+  ul.clean li.r:before{background:var(--red)}
+
+  .tool-tag{display:inline-block;background:#EEF3FC;border:1px solid #D8E3F7;color:#274A8E;font-size:11.1px;font-weight:600;border-radius:6px;padding:3px 9px;margin:0 5px 5px 0}
+  .gate{background:#E6F6EC;border:1px solid #BEE5CC;border-left:4px solid var(--green);border-radius:10px;padding:12px 14px;margin-top:14px}
+  .gate b{color:#0A6B34;font-size:12.5px;text-transform:uppercase;letter-spacing:.6px}
+  .gate p{margin:5px 0 0;font-size:12.8px;color:#1D4A31}
+
+  .del-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:17px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .del-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+  .del-badge{font-size:11px;font-weight:800;letter-spacing:.6px;border-radius:7px;padding:4px 9px;white-space:nowrap;background:#E7EDF9;color:var(--navy)}
+  .del-badge.d2{background:#E4F5FA;color:#046B8C}
+  .del-badge.d3{background:#FDF3DF;color:#8A5B00}
+  .del-badge.d4{background:#E6F6EC;color:#0A6B34}
+  .del-card h4{font-size:14.5px;margin-bottom:5px}
+  .del-card .del-desc{font-size:12.55px;color:var(--muted);margin-bottom:11px}
+  .prog{height:7px;border-radius:99px;background:#EDF1F8;overflow:hidden;margin:6px 0 4px}
+  .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue));border-radius:99px;transition:width .35s ease}
+  .prog-lab{display:flex;justify-content:space-between;font-size:11.3px;color:var(--muted);font-weight:600;margin-bottom:10px}
+  .task{display:flex;gap:9px;align-items:flex-start;padding:5px 0;font-size:12.65px;cursor:pointer;border-radius:6px}
+  .task:hover{background:#F7FAFF}
+  .task input{margin-top:2px;accent-color:var(--blue);cursor:pointer;flex:0 0 auto}
+  .task.done span{text-decoration:line-through;color:#93A1B8}
+
+  .method-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 17px;box-shadow:var(--shadow);border-top:3px solid var(--cyan)}
+  .method-card .m-num{width:30px;height:30px;border-radius:9px;background:#E7EDF9;color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:13.5px;margin-bottom:10px}
+  .method-card h4{font-size:14.1px;margin-bottom:6px}
+  .method-card p{font-size:12.65px;color:var(--muted);margin-bottom:9px}
+
+  .search{width:100%;max-width:360px;padding:9px 13px;border-radius:10px;border:1px solid var(--line);font-family:inherit;font-size:13px;background:#fff;outline:none}
+  .search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,87,184,.1)}
+  .quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:880px){.quad-grid{grid-template-columns:1fr}}
+  .quad{border-radius:var(--radius);padding:15px;border:1px solid var(--line);min-height:190px;background:#fff;box-shadow:var(--shadow)}
+  .quad h4{font-size:13.4px;margin-bottom:3px}
+  .quad .q-sub{font-size:11.4px;color:var(--muted);margin-bottom:11px}
+  .q1{background:#FCE9EC;border-top:4px solid var(--red)}
+  .q2{background:#FDF3DF;border-top:4px solid var(--amber)}
+  .q3{background:#EAF7FB;border-top:4px solid var(--cyan)}
+  .q4{background:#F1F4FA;border-top:4px solid #94A3B8}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px 11px;font-size:12px;font-weight:600;color:#2A3A55;transition:.14s}
+  .chip:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
+  .chip.hide{display:none}
+
+  .toc-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch}
+  @media(max-width:1100px){.toc-flow{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.toc-flow{grid-template-columns:1fr}}
+  .toc-col{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;box-shadow:var(--shadow)}
+  .toc-col h5{font-size:10.6px;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);font-weight:800;margin-bottom:9px}
+  .toc-node{background:#F7FAFF;border:1px solid #E1E9F8;border-radius:8px;padding:7px 9px;font-size:11.8px;color:#243553;margin-bottom:6px}
+  .toc-node:hover{background:#E7EDF9;border-color:#B9CDF0}
+  .assump{background:#FDF3DF;border:1px solid #F0DCA8;border-left:4px solid var(--amber);border-radius:10px;padding:13px 15px;margin-top:14px}
+  .assump b{font-size:12.3px;text-transform:uppercase;letter-spacing:.6px;color:#7A5000}
+
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;font-size:12.85px;min-width:660px}
+  thead th{background:#F3F7FE;text-align:left;padding:11px 13px;font-size:11.1px;text-transform:uppercase;letter-spacing:.7px;color:#3A4C6B;font-weight:800;border-bottom:1px solid var(--line);white-space:nowrap}
+  tbody td{padding:11px 13px;border-bottom:1px solid #EDF1F8;vertical-align:top;color:#26364F}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:#FAFCFF}
+  tbody tr:nth-child(even) td{background:#FBFCFE}
+  tbody tr:nth-child(even):hover td{background:#F5F9FF}
+  .total-row td{background:#EEF3FA !important;font-weight:800;color:var(--navy);border-top:2px solid var(--line)}
+  .pill{display:inline-block;font-size:10.7px;font-weight:800;border-radius:99px;padding:3px 9px;letter-spacing:.3px;white-space:nowrap}
+  .p-blue{background:#E7EDF9;color:var(--navy)} .p-green{background:#E6F6EC;color:#0A6B34}
+  .p-amber{background:#FDF3DF;color:#8A5B00} .p-red{background:#FCE9EC;color:#9B0E24}
+  .p-cyan{background:#E4F5FA;color:#046B8C} .p-violet{background:#EFEBFD;color:#4B34B8}
+  .p-grey{background:#EEF1F6;color:#4A5A73}
+
+  .risk-grid{display:grid;grid-template-columns:44px repeat(5,1fr);grid-template-rows:auto repeat(5,66px) auto;gap:5px;margin-bottom:6px}
+  .rg-label{font-size:10.8px;font-weight:800;color:var(--muted);display:grid;place-items:center;text-transform:uppercase;letter-spacing:.5px}
+  .rg-cell{border-radius:9px;position:relative;padding:5px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;border:1px solid rgba(0,0,0,.05)}
+  .rg-cell .rc-num{position:absolute;right:6px;bottom:4px;font-size:10px;font-weight:800;opacity:.32}
+  .lvl-1{background:#E8F6EE}.lvl-2{background:#EFF8E9}.lvl-3{background:#FFF6E0}
+  .lvl-4{background:#FDECE3}.lvl-5{background:#FBE3E7}
+  .risk-dot{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:10.2px;font-weight:800;color:#fff;cursor:pointer;transition:.15s;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+  .risk-dot:hover{transform:scale(1.16)}
+  .rd-high{background:var(--red)} .rd-med{background:var(--amber)} .rd-low{background:var(--green)}
+  .risk-legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.7px;color:var(--muted);margin-top:8px;align-items:center}
+  .risk-legend i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:5px;vertical-align:-1px}
+
+  .bar-row{display:grid;grid-template-columns:260px 1fr 62px;gap:12px;align-items:center;margin-bottom:10px}
+  @media(max-width:700px){.bar-row{grid-template-columns:1fr;gap:4px}}
+  .bar-lab{font-size:12.65px;font-weight:600;color:#2A3A55}
+  .bar-track{height:20px;background:#EEF2F9;border-radius:7px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:7px;transition:width .6s cubic-bezier(.2,.7,.3,1)}
+  .bar-val{font-size:12.6px;font-weight:800;color:var(--navy);text-align:right}
+
+  .gantt{border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow);overflow-x:auto}
+  .gantt-inner{min-width:940px;padding:14px 16px}
+  .g-row{display:grid;grid-template-columns:250px repeat(16,1fr);gap:4px;align-items:center;margin-bottom:6px}
+  .g-head{font-size:10.2px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;text-align:center;padding-bottom:4px;border-bottom:1px solid var(--line)}
+  .g-lab{font-size:12.1px;font-weight:600;color:#2A3A55;padding-right:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .g-cell{height:22px;border-radius:6px;background:#F3F6FC}
+  .g-bar{height:22px;border-radius:6px;display:flex;align-items:center;padding:0 8px;font-size:10.4px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden}
+  .gb-blue{background:linear-gradient(90deg,#0057B8,#2C7BE5)}
+  .gb-cyan{background:linear-gradient(90deg,#0084B8,#00A3E0)}
+  .gb-amber{background:linear-gradient(90deg,#B87800,#E9A81F)}
+  .gb-green{background:linear-gradient(90deg,#0B7C3C,#12A150)}
+  .gb-violet{background:linear-gradient(90deg,#4B34B8,#8A74F0)}
+  .g-milestone{display:grid;place-items:center;font-size:15px;color:var(--red)}
+
+  .check-item{display:flex;gap:11px;align-items:flex-start;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;margin-bottom:7px;cursor:pointer;transition:.14s}
+  .check-item:hover{border-color:var(--cyan);background:#FBFDFF}
+  .check-item input{margin-top:2px;accent-color:var(--green);cursor:pointer}
+  .check-item.done{background:#E6F6EC;border-color:#BEE5CC}
+  .check-item.done b{text-decoration:line-through;color:#4C6B58}
+  .check-item b{font-size:12.95px;display:block;color:var(--ink)}
+  .check-item small{color:var(--muted);font-size:11.7px}
+
+  .note{background:#EAF7FB;border:1px solid #BFE6F2;border-left:4px solid var(--cyan);border-radius:10px;padding:12px 15px;font-size:12.75px;color:#0B4B60;margin-top:12px}
+  .warn{background:#FDF3DF;border:1px solid #F0DCA8;border-left:4px solid var(--amber);border-radius:10px;padding:12px 15px;font-size:12.75px;color:#6B4700;margin-top:12px}
+
+  .foot{text-align:center;color:#8695AD;font-size:11.5px;padding:26px 10px 10px}
+
+  .sticky-progress{position:fixed;left:0;right:0;bottom:0;z-index:55;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:9px 22px;display:flex;align-items:center;gap:14px;font-size:12.15px;color:var(--muted)}
+  .sticky-progress .sp-track{flex:1;height:7px;background:#EDF1F8;border-radius:99px;overflow:hidden;max-width:520px}
+  .sticky-progress .sp-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--green));border-radius:99px;transition:width .4s}
+
+  .profile-header{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap;margin-bottom:18px}
+  .profile-avatar{width:96px;height:96px;border-radius:16px;background:linear-gradient(135deg,#0B1F3A,#1A4076);display:grid;place-items:center;color:#fff;font-size:32px;font-weight:800;flex:0 0 auto;box-shadow:var(--shadow)}
+  .profile-meta{flex:1;min-width:260px}
+  .profile-meta h2{font-size:22px;margin-bottom:4px}
+  .profile-meta .role{font-size:13.6px;color:var(--blue);font-weight:700;margin-bottom:8px}
+  .profile-meta .detail{font-size:12.8px;color:var(--muted);margin-bottom:3px}
+  .profile-meta .detail b{color:var(--ink)}
+
+  .timeline-item{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+  .timeline-item:last-child{border-bottom:0}
+  .timeline-item .tl-date{font-size:12.3px;font-weight:700;color:var(--blue);padding-top:2px}
+  .timeline-item .tl-body h4{font-size:14px;margin-bottom:3px}
+  .timeline-item .tl-body .tl-org{font-size:12.3px;color:var(--muted);margin-bottom:7px;font-weight:600}
+  .timeline-item .tl-body ul{list-style:none;padding:0;margin:0}
+  .timeline-item .tl-body ul li{position:relative;padding-left:16px;margin-bottom:5px;font-size:12.7px;color:#33455F}
+  .timeline-item .tl-body ul li:before{content:"";position:absolute;left:2px;top:7px;width:5px;height:5px;border-radius:50%;background:var(--cyan)}
+
+  .platform-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);margin-bottom:14px}
+  .platform-card .pch{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+  .platform-card h4{font-size:15.5px;color:var(--navy);margin-bottom:2px}
+  .platform-card .pctag{font-size:10.8px;letter-spacing:.5px;text-transform:uppercase;font-weight:800;color:#8A5B00;background:#FDF3DF;padding:4px 10px;border-radius:99px;white-space:nowrap;border:1px solid #F0DCA8}
+  .platform-card p{font-size:13px;color:var(--text);margin-bottom:10px}
+  .platform-card .url{display:inline-block;font-size:12px;font-weight:700;color:var(--blue);background:#F0F7FF;border:1px solid #D6E7FA;border-radius:6px;padding:4px 10px;margin-top:6px;word-break:break-all}
+  .platform-card .url:hover{background:#E7EDF9}
+
+  @media(max-width:760px){
+    .sidebar{display:none}
+    .content{padding:16px 14px 90px}
+    .topbar{padding:10px 14px}
+    .brand-text span{display:none}
+    .timeline-item{grid-template-columns:1fr;gap:6px}
+  }
+  @media print{
+    @page{size:A4 portrait;margin:14mm 12mm}
+    html,body{background:#fff !important;font-size:10.5pt !important;line-height:1.45 !important}
+    .topbar,.sidebar,.sticky-progress,.btn{display:none !important}
+    .shell{display:block !important}
+    .content{display:block !important;width:100% !important;padding:0 !important}
+    .panel{display:block !important;page-break-before:always;break-before:page}
+    .panel:first-of-type{page-break-before:auto;break-before:auto}
+    .tbl-wrap,.gantt{overflow:visible !important}
+    table{min-width:0 !important;width:100% !important;font-size:9pt !important}
+    .grid,.two-col,.wf-wrap,.quad-grid,.toc-flow{display:block !important}
+    .card,.del-card,.method-card,.toc-col,.quad,.kpi,.platform-card,.timeline-item{page-break-inside:avoid;break-inside:avoid}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">CC+</div>
+    <div class="brand-text">
+      <b>Compete Caribbean+ · Pillar 2 — Dominica</b>
+      <span>B. Cuthbert John, PMP · Individual Consultant · Project Development Support</span>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <span class="top-chip">Grenada · IDB Member &amp; CC+ Beneficiary</span>
+  <span class="top-chip">PMP · 2010–Present</span>
+  <button class="btn btn-light" onclick="window.print()">Print / Export PDF</button>
+</header>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <h5>Assignment</h5>
+    <button class="nav-btn active" data-target="overview"><span class="nav-dot"></span>Overview</button>
+    <button class="nav-btn" data-target="profile"><span class="nav-dot"></span>Consultant Profile</button>
+    <button class="nav-btn" data-target="platforms"><span class="nav-dot"></span>Prototype Systems Built</button>
+    <button class="nav-btn" data-target="method"><span class="nav-dot"></span>Methodology</button>
+    <button class="nav-btn" data-target="workflow"><span class="nav-dot"></span>Delivery Workflow</button>
+    <button class="nav-btn" data-target="deliverables"><span class="nav-dot"></span>Deliverables Tracker</button>
+    <h5>Design Instruments</h5>
+    <button class="nav-btn" data-target="stakeholders"><span class="nav-dot"></span>Stakeholder Mapping</button>
+    <button class="nav-btn" data-target="toc"><span class="nav-dot"></span>Theory of Change</button>
+    <button class="nav-btn" data-target="results"><span class="nav-dot"></span>Results Framework</button>
+    <button class="nav-btn" data-target="risk"><span class="nav-dot"></span>Risk Register</button>
+    <h5>Commercial &amp; Assurance</h5>
+    <button class="nav-btn" data-target="budget"><span class="nav-dot"></span>Fee &amp; Budget</button>
+    <button class="nav-btn" data-target="timeline"><span class="nav-dot"></span>Timeline &amp; Gates</button>
+    <button class="nav-btn" data-target="compliance"><span class="nav-dot"></span>Compliance &amp; Submission</button>
+  </aside>
+
+  <main class="content">
+
+    <!-- ============ OVERVIEW ============ -->
+    <section class="panel active" id="overview">
+      <div class="hero">
+        <h1>B. Cuthbert John, PMP — Project Development Support, Dominica</h1>
+        <p>
+          Expression of Interest for the IDB Compete Caribbean+ (CC+) Pillar 2 assignment. This operational hub
+          demonstrates the methodology, workflow, design instruments, and quality controls I will apply to translate
+          Dominica's priority project concept into an implementable operation that strengthens public governance and
+          institutional capacity for climate-smart, gender-responsive, and inclusive private-sector development.
+        </p>
+        <div class="hero-chips">
+          <span class="hero-chip">35+ years OECS project development</span>
+          <span class="hero-chip">PMP since 2010</span>
+          <span class="hero-chip">4 M&amp;E / MRV prototypes built</span>
+          <span class="hero-chip">Grenada · IDB member &amp; CC+ beneficiary</span>
+        </div>
+        <div class="hero-badges">
+          <span class="hb gold">PMP® CERTIFIED</span>
+          <span class="hb sky">DEGREE IN ACCOUNTING</span>
+          <span class="hb green">4 M&amp;E / MRV PROTOTYPES BUILT</span>
+          <span class="hb">UNDP · EU · IBM / GOVT PROJECT DELIVERY</span>
+        </div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:16px">
+        <div class="kpi k-blue"><div class="kpi-val">35+</div><div class="kpi-lab">Years Caribbean experience</div></div>
+        <div class="kpi k-green"><div class="kpi-val">4</div><div class="kpi-lab">M&amp;E / MRV prototypes built</div></div>
+        <div class="kpi k-amber"><div class="kpi-val">4</div><div class="kpi-lab">Deliverables</div></div>
+        <div class="kpi k-violet"><div class="kpi-val">100%</div><div class="kpi-lab">Deliverable-based payment</div></div>
+      </div>
+
+      <div class="grid g2">
+        <div class="card">
+          <div class="eyebrow">Objective</div>
+          <h3 style="margin-bottom:9px">What the assignment must produce</h3>
+          <p style="font-size:13.15px;color:#33455F">
+            A complete, technically sound Pillar 2 project proposal that meets IDB and CC+ eligibility, quality-at-entry
+            and results requirements — covering diagnostic analysis, stakeholder engagement, theory of change and results
+            design, implementation arrangements, budgeting, procurement planning, risk management, sustainability, and
+            integration of climate, gender, inclusion and regional considerations.
+          </p>
+          <div style="margin-top:12px">
+            <span class="tool-tag">Diagnostic analysis</span>
+            <span class="tool-tag">Stakeholder engagement</span>
+            <span class="tool-tag">Theory of change</span>
+            <span class="tool-tag">Results framework</span>
+            <span class="tool-tag">Implementation arrangements</span>
+            <span class="tool-tag">Budget</span>
+            <span class="tool-tag">Procurement plan</span>
+            <span class="tool-tag">Risk matrix</span>
+            <span class="tool-tag">Sustainability &amp; scaling</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="eyebrow">Delivery logic</div>
+          <h3 style="margin-bottom:9px">Four phases → four deliverables</h3>
+          <div class="grid g2" style="gap:10px">
+            <div class="phase-card" data-goto="workflow" data-phase="0">
+              <div class="pc-num">Phase 01</div>
+              <h4>Mobilise &amp; Frame</h4>
+              <p>Inception, document review, methodology, engagement plan.</p>
+              <span class="pc-tag">D1 · 10%</span>
+            </div>
+            <div class="phase-card" data-goto="workflow" data-phase="1">
+              <div class="pc-num">Phase 02</div>
+              <h4>Diagnose &amp; Design</h4>
+              <p>Problem analysis, stakeholder map, TOC, concept, draft RF.</p>
+              <span class="pc-tag">D2 · 20%</span>
+            </div>
+            <div class="phase-card" data-goto="workflow" data-phase="2">
+              <div class="pc-num">Phase 03</div>
+              <h4>Draft the Package</h4>
+              <p>Components, budget, procurement, risks, annexes.</p>
+              <span class="pc-tag">D3 · 40%</span>
+            </div>
+            <div class="phase-card" data-goto="workflow" data-phase="3">
+              <div class="pc-num">Phase 04</div>
+              <h4>Validate &amp; Finalise</h4>
+              <p>Consolidated comments, QA, approval-ready package.</p>
+              <span class="pc-tag">D4 · 30%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Dominica context — what the design must respond to</h3>
+          <span class="pill p-cyan">SIDS · High climate vulnerability</span>
+        </div>
+        <div class="grid g3">
+          <div>
+            <h4 style="font-size:13.1px;margin-bottom:6px;color:var(--red)">Vulnerability</h4>
+            <ul class="clean">
+              <li>Exposure to hurricanes, floods, landslides and drought</li>
+              <li>Economic shocks and narrow fiscal space</li>
+              <li>Concentration in climate-sensitive sectors</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size:13.1px;margin-bottom:6px;color:var(--blue)">Institutional need</h4>
+            <ul class="clean">
+              <li>Legal and policy frameworks that enable climate action</li>
+              <li>Capacity to formulate, implement and monitor climate policy</li>
+              <li>More inclusive climate governance</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size:13.1px;margin-bottom:6px;color:var(--green)">Private-sector opportunity</h4>
+            <ul class="clean">
+              <li class="g">Climate-smart agriculture and food systems</li>
+              <li class="g">Sustainable tourism</li>
+              <li class="g">Blue-economy and nature-based solutions with biodiversity co-benefits</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROFILE ============ -->
+    <section class="panel" id="profile">
+      <h2 class="page-title">Consultant Profile</h2>
+      <p class="page-sub">Full professional record. Every claim below is evidenced in the CV and supported by named references.</p>
+
+      <div class="card">
+        <div class="profile-header">
+          <div class="profile-avatar">BCJ</div>
+          <div class="profile-meta">
+            <h2>Butlington Cuthbert John, PMP</h2>
+            <div class="role">Lead Project Management Consultant · Project Development Specialist</div>
+            <div class="detail"><b>Nationality:</b> Grenada (IDB member country and CC+ beneficiary country)</div>
+            <div class="detail"><b>Residence:</b> Fulshear, Texas, USA — US Green Card Holder / CARICOM Skills Certificate Holder</div>
+            <div class="detail"><b>Email:</b> cuthbert@oecstrading.com</div>
+            <div class="detail"><b>Languages:</b> English (excellent); Spanish (basic)</div>
+            <div class="detail"><b>Professional bodies:</b> Project Management Institute (PMI) · QuickBooks Pro Advisor (Intuit) · Association for the Advancement of Cost Engineers (AACE)</div>
+          </div>
+        </div>
+
+        <div class="grid g3" style="margin-top:6px">
+          <div>
+            <h4 style="font-size:12.8px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:9px">Education</h4>
+            <ul class="clean">
+              <li><b>PMP</b> — Project Management Institute, 2010–present, good standing</li>
+              <li><b>Degree in Accounting</b> — Universidad de Camagüey, 1986</li>
+              <li><b>QuickBooks Pro-Advisor</b> — Intuit</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size:12.8px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:9px">Caribbean footprint</h4>
+            <ul class="clean">
+              <li><b>Grenada</b> — 1986–2004</li>
+              <li><b>St Vincent &amp; the Grenadines</b> — 2004–2008</li>
+              <li><b>St Lucia</b> — 2008–2009, 2012–2014, present</li>
+              <li><b>St Kitts &amp; Nevis</b> — 2009–2011, 2013–2015, 2016–present</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size:12.8px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:9px">Other skills</h4>
+            <ul class="clean">
+              <li>Project Gantt charts and dashboards</li>
+              <li>Survey planning and training delivery</li>
+              <li>Logistics planning and coordination</li>
+              <li>Digital transformation and IT application</li>
+              <li>M&amp;E / MRV prototype architecture and development</li>
+              <li>QuickBooks Desktop and Online — 15+ years</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Professional experience — full timeline</h3>
+          <span class="pill p-blue">35+ years</span>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-date">2011 – 2024</div>
+          <div class="tl-body">
+            <h4>CEO / Lead Project &amp; Business Management Consultant</h4>
+            <div class="tl-org">Converge Solutions Inc. / PBM Caribbean — St Lucia, St Kitts, Grenada</div>
+            <ul>
+              <li>Provided QuickBooks Desktop and Online support to dozens of SME clients over 15 years, with current support to several Caribbean companies</li>
+              <li>Delivered Strategic Management training to public officers in St Kitts &amp; Nevis (2013, 2014)</li>
+              <li>Delivered Strategic Management training to the Ministry of Agriculture, Grenada (2013)</li>
+              <li>Delivered Project and Strategic Management training to the Ministry of Trade, Grenada (2012)</li>
+              <li>Delivered Financial Audit workshops to public officers, St Kitts &amp; Nevis (2014)</li>
+              <li>Developed Strategic Business Plans for diverse clients in St Lucia and St Kitts</li>
+              <li>Provided Project Management, Accounting and Finance support to clients in St Lucia and St Kitts</li>
+              <li><b>Project Manager, UNDP Capacity Building for MSMEs in Grenada (2015)</b> — training in finance, accounting, and business management</li>
+              <li>Consultant to public and private clients supporting VAT implementation in St Lucia and St Kitts</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-date">2009 – 2011<br>2013 – 2015<br>2016 – present</div>
+          <div class="tl-body">
+            <h4>ICT Strategies &amp; E-Business Expert / Project Manager</h4>
+            <div class="tl-org">Government of St Kitts &amp; Nevis — Permanent Secretary, Sustainable Development</div>
+            <ul>
+              <li><b>Project Manager, IT Training Project</b> — conducted needs assessment and surveys, coordinated and delivered internationally recognised IT certification training, invigilated 110 exams for citizens of St Kitts &amp; Nevis</li>
+              <li><b>Project Manager, Digital Media Training Project</b> — developed the training manual, coordinated and delivered digital and social media training to 96 participants</li>
+              <li><b>Short-Term Consultant, National E-Readiness Assessment</b> — coordinated the IT business survey, developed key ICT indicators using the CID E-Readiness methodology, produced comprehensive report, and trained public servants to conduct future assessments</li>
+              <li>Facilitator of Project Management and QuickBooks training to public employees</li>
+              <li>Consultant to private sector during VAT implementation (2010–2011)</li>
+              <li>CEO, Project &amp; Business Management Caribbean Limited — licensed money services business providing micro financing in St Kitts &amp; Nevis</li>
+              <li>Judicial Manager and Liquidator, CLICO St Kitts Branch (2020–present)</li>
+              <li>Anti-Money Laundering Compliance and Reporting Officer, PBM Caribbean</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-date">2004 – 2009</div>
+          <div class="tl-body">
+            <h4>ICT Business Development Consultant / CEO</h4>
+            <div class="tl-org">Computer Solutions — St Vincent &amp; the Grenadines, St Lucia</div>
+            <ul>
+              <li><b>Lead Consultant, Training Needs Assessment</b> — SFA 2005 ICT Project, SVG. Identified training needs for staff working in small businesses and informed the design and delivery of training programmes</li>
+              <li><b>Team Leader, Evaluation Study on the Fiscal Incentive Environment</b> — assessed 11 structural, legal, and regulatory incentive measures to support ICT uptake by foreign and national private-sector operators</li>
+              <li><b>Short-Term Business Support Consultant</b> — Steinbeis Transferzentrum, developed selection criteria for community access centres for the e-business incubator project (EU-funded "Business Skills Development and E-business Incubators")</li>
+              <li><b>E-business Consultant</b> — Steinbeis Transferzentrum, developed the 3-year Strategic and Financial Plan for the E-business Incubator in SVG</li>
+              <li>Facilitator, financial management training to regional participants — "How to Run a Technology Business Incubator"</li>
+              <li>Lead Technologist providing IT support services to private-sector clients in SVG and St Lucia</li>
+              <li><b>Director, SVG Chamber of Commerce</b>; Member, VAT Implementation Committee (2007)</li>
+              <li><b>Team Leader, EU-funded ICT Skills Audit</b> of the ICT sector in St Lucia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-date">1986 – 2004</div>
+          <div class="tl-body">
+            <h4>Project Manager / Team Leader / Manager</h4>
+            <div class="tl-org">Grenada</div>
+            <ul>
+              <li>Member of the government-appointed committee that contributed to the development of the <b>National ICT Strategic Plan for Grenada (2000)</b></li>
+              <li>Managed Computer Solutions (1989–2002), one of Grenada's leading ICT-driven companies. Initiated and managed over 300 large and small IT projects. Awarded by IBM in 1997 as sales leader in the Eastern Caribbean</li>
+              <li><b>Project Manager, IBM / Government of Grenada, US$2.1 million</b> — created computer labs in 18 secondary schools, the National College, and the Ministry of Education. More than 400 computers installed on time for the 1997 academic year. Led design and implementation, prepared the ICT-in-schools implementation plan, managed procurement of IT equipment and services, negotiated project funding</li>
+              <li>Board of Directors, Grenada Bank of Commerce (1997–1999) — played a leading role in the privatization process that resulted in the sale to RBTT</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Why this profile maps to the TOR — honest assessment</h3></div>
+        <div class="grid g2">
+          <div>
+            <h4 style="font-size:13.2px;color:var(--green-2);margin-bottom:7px">What is directly present</h4>
+            <ul class="clean">
+              <li class="g">35+ years of project development and delivery in the OECS</li>
+              <li class="g">PMP since 2010 with continuous good standing</li>
+              <li class="g">Donor-financed operations: UNDP, EU (Steinbeis), IBM / Government of Grenada</li>
+              <li class="g">Four prototype M&amp;E / MRV systems built in response to development operation TORs</li>
+              <li class="g">Needs assessments, surveys, training plans, work plans, procurement plans</li>
+              <li class="g">Strategic and financial planning for institutional strengthening</li>
+              <li class="g">Policy and regulatory analysis (11 fiscal incentive measures; VAT implementation)</li>
+              <li class="g">Multi-stakeholder engagement (Chamber of Commerce director; government committees)</li>
+              <li class="g">English proficiency at the highest level</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-size:13.2px;color:var(--amber);margin-bottom:7px">What is transferable, not direct</h4>
+            <ul class="clean">
+              <li class="a">No prior CC+ Pillar 2 project design assignment</li>
+              <li class="a">No prior Dominica-specific assignment (regional OECS experience instead)</li>
+              <li class="a">No publicly documented theory of change from a development bank operation — though the prototype M&amp;E/MRV systems demonstrate practical understanding of how results frameworks function</li>
+              <li class="a">Climate governance design experience is grounded in the prototype systems and prior work, not in a prior Pillar 2 institutional strengthening operation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note">
+          <b>How I address the gap:</b> the TOR asks for project development and design expertise. My record is
+          precisely that — 35 years of designing, planning, budgeting, procuring, and delivering institutional and
+          private-sector projects across the OECS. The four prototype M&amp;E / MRV systems I have built demonstrate
+          that I can read a development bank TOR, interpret its requirements, and translate them into a functioning
+          data model, indicator architecture, verification pathway, and reporting cycle. That is the discipline this
+          assignment requires.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Professional references</h3></div>
+        <div class="grid g2">
+          <div class="method-card">
+            <div class="m-num">01</div>
+            <h4>Edward Harris</h4>
+            <p>Realtor / Business Consultant<br>Vieux Fort, St Lucia<br>Tel: 758-485-1456<br>Email: eaharrisdestiny@gmail.com</p>
+          </div>
+          <div class="method-card">
+            <div class="m-num">02</div>
+            <h4>Shanna Herbert</h4>
+            <p>Basseterre, St Kitts<br>Tel: 869-663-1475<br>Email: shanna.herbert@yahoo.com</p>
+          </div>
+        </div>
+        <div class="note">
+          Additional professional contacts available on request: Terrence Elliott (Converge Solutions Inc. / PBM
+          Caribbean, Tel 758-484-8228); Mr Tarlie Francis (Independent Consultant, St Kitts, Tel 869-669-6240).
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLATFORMS ============ -->
+    <section class="panel" id="platforms">
+      <h2 class="page-title">Prototype M&amp;E / MRV Systems Built</h2>
+      <p class="page-sub">
+        I have designed and built four prototype M&amp;E and MRV platforms, each responding to the terms of reference and
+        requirements of a specific Caribbean or SIDS development operation. These are <b>working prototypes</b> — not
+        yet deployed in any country — built by me to demonstrate that I can read a development bank TOR, interpret its
+        requirements, and translate them into a functioning data model, indicator architecture, verification pathway,
+        and reporting cycle.
+      </p>
+
+      <div class="note" style="margin-bottom:16px">
+        <b>Why these prototypes matter:</b> building a working prototype in response to a TOR requires interpreting the
+        results framework, understanding the indicator logic, designing the means-of-verification pathway, and
+        structuring the reporting cycle. That is exactly the same discipline the CC+ Pillar 2 project design requires.
+        The prototypes are evidence of applied TOR interpretation and systems design capability — not operational
+        deployments.
+      </div>
+
+      <div class="platform-card">
+        <div class="pch">
+          <div><h4>GCFT Portal — Gender &amp; Climate Finance Tagging</h4></div>
+          <span class="pctag">Prototype · Not Deployed</span>
+        </div>
+        <p>A prototype sovereign MRV platform built in response to Caribbean and SIDS requirements for climate and gender finance tagging. Demonstrates a working data model for climate budget line tagging, gender budget line tagging, GCF disbursement tracking, and audit-ready disclosures. The prototype responds directly to the requirements articulated in CC+ Pillar 2 and GCF MRV specifications for sovereign tagging infrastructure in the region.</p>
+        <div>
+          <span class="tool-tag">Climate budget tagging</span>
+          <span class="tool-tag">Gender budget tagging</span>
+          <span class="tool-tag">GCF disbursement tracking</span>
+          <span class="tool-tag">Audit-ready disclosures</span>
+          <span class="tool-tag">MRV</span>
+        </div>
+        <a class="url" href="https://gcftportal.org/dashboard" target="_blank">gcftportal.org/dashboard</a>
+      </div>
+
+      <div class="platform-card">
+        <div class="pch">
+          <div><h4>Dominica CREP M&amp;E MIS</h4></div>
+          <span class="pctag">Prototype · Not Deployed</span>
+        </div>
+        <p>A prototype M&amp;E management information system built in response to the requirements of the Dominica Community Resilience Enhancement Project (DOMCREP) — a GCF-funded climate resilience operation. The prototype demonstrates logical framework tracking, indicator monitoring, and reporting cycles for a climate resilience project in Dominica. It shows how an M&amp;E MIS responds to a GCF project's logical framework and reporting obligations.</p>
+        <div>
+          <span class="tool-tag">M&amp;E MIS</span>
+          <span class="tool-tag">Logical framework tracking</span>
+          <span class="tool-tag">Climate resilience</span>
+          <span class="tool-tag">DOMCREP requirements</span>
+          <span class="tool-tag">GCF reporting</span>
+        </div>
+        <a class="url" href="https://dominica-crep-me-mis-system.lovable.app/" target="_blank">dominica-crep-me-mis-system.lovable.app</a>
+      </div>
+
+      <div class="platform-card">
+        <div class="pch">
+          <div><h4>Grenada UBEC M&amp;E MIS</h4></div>
+          <span class="pctag">Prototype · Not Deployed</span>
+        </div>
+        <p>A prototype M&amp;E platform built in response to the requirements of the World Bank's Unleashing the Blue Economy of the Caribbean (UBEC) Project (P171833) in Grenada. Demonstrates how PIU-level M&amp;E tracking is structured for a blue economy operation, including indicator management within a Project Implementation Unit context.</p>
+        <div>
+          <span class="tool-tag">M&amp;E MIS</span>
+          <span class="tool-tag">Blue economy</span>
+          <span class="tool-tag">PIU support design</span>
+          <span class="tool-tag">World Bank P171833 requirements</span>
+        </div>
+        <a class="url" href="https://grenada-ubec-me-project.lovable.app" target="_blank">grenada-ubec-me-project.lovable.app</a>
+      </div>
+
+      <div class="platform-card">
+        <div class="pch">
+          <div><h4>Belize Blue Economy MRV System</h4></div>
+          <span class="pctag">Prototype · Not Deployed</span>
+        </div>
+        <p>A prototype MRV system built in response to the requirements of Belize's Blue Bond &amp; Finance Permanence Unit (BL-T1194), aligned to the Belize Sustainable Ocean Plan and the ICZM framework. Demonstrates capital tracking, disbursement monitoring, verification queues, and programme component management for an IDB-aligned MRV operation.</p>
+        <div>
+          <span class="tool-tag">MRV system</span>
+          <span class="tool-tag">Blue Bond tracking</span>
+          <span class="tool-tag">Capital &amp; disbursement</span>
+          <span class="tool-tag">IDB BL-T1194 requirements</span>
+          <span class="tool-tag">ICZM framework</span>
+        </div>
+        <a class="url" href="https://belize-blue-economy-mis.lovable.app/" target="_blank">belize-blue-economy-mis.lovable.app</a>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Why These Prototypes Matter for This Assignment</h3></div>
+        <ul class="clean">
+          <li class="g"><b>Direct TOR interpretation capability:</b> each prototype was built in response to a real development bank TOR — CC+/GCF, GCF DOMCREP, World Bank UBEC P171833, and IDB BL-T1194. Building them required reading and interpreting the specifications, not just describing them.</li>
+          <li class="g"><b>Results framework literacy in practice:</b> building these prototypes required understanding how indicators are defined, how baselines and targets are set, how means of verification are operationalised, and how reporting cycles function within a development bank framework.</li>
+          <li class="g"><b>Climate and gender integration as a data model:</b> the GCFT Portal prototype demonstrates that I understand climate and gender tagging as a data architecture, not as a narrative device — directly applicable to the cross-cutting integration requirements of Pillar 2.</li>
+          <li class="g"><b>Institutional sustainability logic:</b> each prototype was designed with handover to a national institution in mind — the same sustainability logic required in the Pillar 2 project design.</li>
+          <li class="g"><b>Regional replication as a design principle:</b> the GCFT Portal prototype is designed to serve multiple SIDS jurisdictions, demonstrating the replication architecture the Pillar 2 design must also address.</li>
+          <li class="g"><b>Honest positioning:</b> I am not claiming deployed, operational systems. I am claiming the capability to interpret a TOR and build a system that responds to it. That capability is what the Pillar 2 assignment requires.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ METHODOLOGY ============ -->
+    <section class="panel" id="method">
+      <h2 class="page-title">7-Step Methodology</h2>
+      <p class="page-sub">A participatory and evidence-based sequence that moves from documentary evidence to a validated, approval-ready project package. Each step names the analytical tools applied and the artefacts produced.</p>
+      <div class="grid g2" id="methodGrid"></div>
+
+      <div class="card">
+        <div class="card-head"><h3>Analytical toolkit applied throughout</h3></div>
+        <div>
+          <span class="tool-tag">Stakeholder analysis &amp; power/interest mapping</span>
+          <span class="tool-tag">Problem tree / causal analysis</span>
+          <span class="tool-tag">Theory of change &amp; logic models</span>
+          <span class="tool-tag">Results framework design</span>
+          <span class="tool-tag">Social &amp; gender impact assessment</span>
+          <span class="tool-tag">Climate change impact assessment</span>
+          <span class="tool-tag">Policy &amp; legislative gap analysis</span>
+          <span class="tool-tag">Institutional capacity assessment</span>
+          <span class="tool-tag">Risk analysis &amp; mitigation design</span>
+          <span class="tool-tag">Sustainability &amp; scaling planning</span>
+          <span class="tool-tag">Procurement planning (harmonized guidelines)</span>
+          <span class="tool-tag">Costing &amp; budget architecture</span>
+          <span class="tool-tag">M&amp;E and means-of-verification design</span>
+          <span class="tool-tag">Complementarity / donor mapping</span>
+          <span class="tool-tag">ISO 14097 climate-finance reporting alignment</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORKFLOW ============ -->
+    <section class="panel" id="workflow">
+      <h2 class="page-title">Delivery Workflow</h2>
+      <p class="page-sub">Four sequential phases, each closed by a formal stage gate. Every phase has defined inputs, activities, tools, outputs and acceptance criteria — so progress is verifiable and payment milestones are unambiguous.</p>
+
+      <div class="grid g4" style="margin-bottom:16px">
+        <div class="phase-card active" data-phase="0" data-goto="workflow">
+          <div class="pc-num">Phase 01 · Weeks 1–2</div>
+          <h4>Mobilise &amp; Frame</h4>
+          <p>Inception Report and Work Plan</p>
+          <span class="pc-tag">D1 · 10%</span>
+        </div>
+        <div class="phase-card" data-phase="1" data-goto="workflow">
+          <div class="pc-num">Phase 02 · Weeks 2–5</div>
+          <h4>Diagnose &amp; Design</h4>
+          <p>Project Design Framework (TC Abstract)</p>
+          <span class="pc-tag">D2 · 20%</span>
+        </div>
+        <div class="phase-card" data-phase="2" data-goto="workflow">
+          <div class="pc-num">Phase 03 · Weeks 5–11</div>
+          <h4>Draft the Package</h4>
+          <p>First Draft Project Proposal</p>
+          <span class="pc-tag">D3 · 40%</span>
+        </div>
+        <div class="phase-card" data-phase="3" data-goto="workflow">
+          <div class="pc-num">Phase 04 · Weeks 11–16</div>
+          <h4>Validate &amp; Finalise</h4>
+          <p>Final Project Proposal</p>
+          <span class="pc-tag">D4 · 30%</span>
+        </div>
+      </div>
+
+      <div class="wf-wrap">
+        <div class="wf-list" id="wfList"></div>
+        <div class="wf-detail" id="wfDetail"></div>
+      </div>
+    </section>
+
+    <!-- ============ DELIVERABLES ============ -->
+    <section class="panel" id="deliverables">
+      <h2 class="page-title">Deliverables Tracker</h2>
+      <p class="page-sub">Each deliverable is decomposed into verifiable sub-tasks. Tick items as they complete — progress and the overall assignment readiness indicator update automatically and persist in your browser.</p>
+
+      <div class="card tight" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:220px">
+          <div style="display:flex;justify-content:space-between;font-size:12.3px;font-weight:700;color:#2A3A55;margin-bottom:5px">
+            <span>Assignment readiness</span><span id="overallPct">0%</span>
+          </div>
+          <div class="prog" style="height:9px"><i id="overallBar" style="width:0%"></i></div>
+        </div>
+        <button class="btn btn-ghost" onclick="resetTasks()">Reset tracker</button>
+      </div>
+
+      <div class="grid g2" id="delGrid"></div>
+
+      <div class="note">
+        <b>Payment linkage:</b> D1 10% · D2 20% · D3 40% · D4 30%. Each deliverable is submitted as a controlled
+        document, reviewed by the designated national counterpart and the CC+ Facility Coordination Unit, and revised
+        against consolidated comments before approval.
+      </div>
+    </section>
+
+    <!-- ============ STAKEHOLDERS ============ -->
+    <section class="panel" id="stakeholders">
+      <h2 class="page-title">Stakeholder Mapping &amp; Engagement</h2>
+      <p class="page-sub">Stakeholders are mapped on influence × interest, then assigned an engagement modality. Consultation and validation workshops are coordinated and led by the consultant, with the designated counterpart and CC+ unit.</p>
+
+      <div class="card tight" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <input id="stakeSearch" class="search" type="search" placeholder="Filter stakeholders (e.g. ministry, private sector, Kalinago, cooperative)…" />
+        <span style="font-size:12.1px;color:var(--muted)">Type to filter the matrix below</span>
+      </div>
+
+      <div class="quad-grid" id="quadGrid"></div>
+
+      <div class="note">
+        <b>Gender &amp; inclusion safeguard:</b> every consultation is disaggregated by sex, age and sector, and
+        deliberately includes women-led enterprises, youth organisations and Kalinago representation. Participation
+        targets are reported in the results framework.
+      </div>
+    </section>
+
+    <!-- ============ TOC ============ -->
+    <section class="panel" id="toc">
+      <h2 class="page-title">Theory of Change</h2>
+      <p class="page-sub">Correctly framed for Pillar 2: strengthening public governance and institutional capacity creates the enabling environment for climate-smart, gender-responsive and inclusive private-sector development. This is the backbone of Deliverable 2 and drives component structure, indicators and budget allocation.</p>
+
+      <div class="card">
+        <div class="toc-flow" id="tocFlow"></div>
+        <div class="assump">
+          <b>Critical assumptions to be tested during validation</b>
+          <ul class="clean" style="margin-top:8px">
+            <li class="a">Counterpart ministries maintain focal-point availability through the design window</li>
+            <li class="a">Baseline data for target sectors can be sourced or reasonably estimated within Phase 2</li>
+            <li class="a">Private-sector actors perceive value in engaging with the strengthened governance framework</li>
+            <li class="a">No major climate or hazard event disrupts the consultation schedule</li>
+            <li class="a">Gender and inclusion commitments are retained through to approval</li>
+            <li class="a">Political and administrative continuity preserves ownership of the initiative</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="panel" id="results">
+      <h2 class="page-title">Results Framework</h2>
+      <p class="page-sub">Illustrative indicator architecture for the proposed Pillar 2 intervention, aligned to the CC+ results framework. Final values are established in Phase 2 (Deliverable 2) and validated with the counterpart and CC+ unit.</p>
+
+      <div class="card tight" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+        <span style="font-size:11.8px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:var(--muted)">Filter</span>
+        <button class="btn btn-ghost filt active" data-f="all">All</button>
+        <button class="btn btn-ghost filt" data-f="Institutional">Institutional</button>
+        <button class="btn btn-ghost filt" data-f="Climate">Climate</button>
+        <button class="btn btn-ghost filt" data-f="Competitiveness">Competitiveness</button>
+        <button class="btn btn-ghost filt" data-f="Gender">Gender &amp; Inclusion</button>
+        <button class="btn btn-ghost filt" data-f="Fiduciary">Fiduciary / M&amp;E</button>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:70px">Code</th>
+              <th>Indicator</th>
+              <th style="width:130px">Area</th>
+              <th style="width:110px">Baseline</th>
+              <th style="width:150px">Target</th>
+              <th>Means of verification</th>
+            </tr>
+          </thead>
+          <tbody id="rfBody"></tbody>
+        </table>
+      </div>
+
+      <div class="warn">
+        <b>Note:</b> baselines and targets shown are illustrative placeholders for the prototype. Final values are
+        established in Phase 2 (Deliverable 2) through the diagnostic and validated with the counterpart and CC+ unit.
+      </div>
+    </section>
+
+    <!-- ============ RISK ============ -->
+    <section class="panel" id="risk">
+      <h2 class="page-title">Risk Register</h2>
+      <p class="page-sub">Likelihood × impact positioning with proportionate mitigation across the seven TOR risk categories — technical, institutional, fiduciary, stakeholder, climate, sustainability and implementation.</p>
+
+      <div class="card">
+        <div class="card-head"><h3>Likelihood × Impact heat map</h3><span class="pill p-grey">Hover a risk marker for detail</span></div>
+        <div class="risk-grid" id="riskGrid"></div>
+        <div class="risk-legend">
+          <span><i class="rd-high"></i>High (score ≥ 16)</span>
+          <span><i class="rd-med"></i>Medium (8–15)</span>
+          <span><i class="rd-low"></i>Low (&lt; 8)</span>
+          <span style="margin-left:auto">Impact →&nbsp;&nbsp;1 Minor · 3 Moderate · 5 Severe</span>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:60px">ID</th>
+              <th>Risk</th>
+              <th style="width:120px">Category</th>
+              <th style="width:60px">L</th>
+              <th style="width:60px">I</th>
+              <th style="width:80px">Score</th>
+              <th>Mitigation / management response</th>
+            </tr>
+          </thead>
+          <tbody id="riskBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ BUDGET ============ -->
+    <section class="panel" id="budget">
+      <h2 class="page-title">Fee Proposal &amp; Budget Architecture</h2>
+      <p class="page-sub">Two distinct budget layers are presented: (A) the consultancy lump-sum fee for this assignment; and (B) the indicative cost architecture for the proposed Pillar 2 project, finalised in Deliverable 3.</p>
+
+      <div class="card">
+        <div class="card-head"><h3>A · Consultancy lump-sum fee — this assignment</h3><span class="pill p-blue">Deliverable-based · 100%</span></div>
+        <div class="note" style="margin-bottom:14px">
+          <b>Fiduciary context:</b> all-inclusive lump-sum professional fee structured across the four-month
+          consultancy lifecycle. Aligned with international DFI daily consulting rates and SIDS logistics parameters.
+          No advance payment requested. Travel to Dominica, if required and authorised in advance, handled separately
+          under IDB policy. Scope changes managed through a written variation procedure with CC+ approval.
+        </div>
+
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Deliverable / Cost Item</th>
+                <th>Resource Allocation &amp; Units</th>
+                <th class="text-right" style="width:100px">Weight</th>
+                <th class="text-right" style="width:140px">Fee (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>D1 — Inception Report &amp; Work Plan</strong><br><small>Methodology, stakeholder engagement plan, information-gap register, work schedule, proposed package structure.</small></td>
+                <td>9 calendar days · Phase 1</td>
+                <td class="text-right">10%</td>
+                <td class="text-right"><b>$4,500.00</b></td>
+              </tr>
+              <tr>
+                <td><strong>D2 — Project Design Framework (TC Abstract)</strong><br><small>Validated problem analysis, stakeholder map, TOC, concept note, budget envelope, draft risk assessment, draft results matrix.</small></td>
+                <td>16 billable days · Phase 2</td>
+                <td class="text-right">20%</td>
+                <td class="text-right"><b>$9,000.00</b></td>
+              </tr>
+              <tr>
+                <td><strong>D3 — First Draft Project Proposal (TC Document Package)</strong><br><small>Full CC+ proposal format, detailed activities, implementation arrangements, budget, procurement plan, risk matrix, results matrix, ToRs, sustainability &amp; scaling strategy, climate/gender/inclusion integration.</small></td>
+                <td>32 billable days · Phase 3</td>
+                <td class="text-right">40%</td>
+                <td class="text-right"><b>$18,000.00</b></td>
+              </tr>
+              <tr>
+                <td><strong>D4 — Final Project Proposal (TC Document Package)</strong><br><small>Consolidated comments addressed, quality-at-entry assurance, compliance verification, approval-ready package.</small></td>
+                <td>23 billable days · Phase 4</td>
+                <td class="text-right">30%</td>
+                <td class="text-right"><b>$13,500.00</b></td>
+              </tr>
+              <tr class="total-row">
+                <td>TOTAL PROFESSIONAL FEES (Lump-Sum Base)</td>
+                <td>80 billable days · 4 months</td>
+                <td class="text-right">100%</td>
+                <td class="text-right">$45,000.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <b>Fee justification:</b> USD 45,000 ÷ 80 billable days = USD 562.50 per day, consistent with international
+          DFI rates for a PMP-certified consultant with 35+ years of experience operating in Caribbean SIDS.
+          <b>Change control:</b> any scope expansion beyond the four deliverables is managed through a written variation
+          request, a revised level-of-effort estimate, and CC+ Facility Coordination Unit approval before additional
+          work commences.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>B · Indicative project cost architecture — to be designed in D3</h3><span class="pill p-green">Illustrative</span></div>
+        <div id="budgetBars"></div>
+        <div class="note" style="margin-top:14px">
+          Allocation logic: maximum share to direct private-sector-facing climate-smart services enabled by strengthened
+          governance, with ring-fenced lines for gender equality and inclusion (≥10%), institutional sustainability
+          and a dedicated digital/knowledge backbone enabling monitoring, transparency and regional replication.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Indicative procurement approach for the proposed project</h3></div>
+        <div class="tbl-wrap" style="box-shadow:none;border-radius:10px">
+          <table style="min-width:640px">
+            <thead>
+              <tr><th>Indicative package</th><th style="width:140px">Method</th><th style="width:110px">Phase</th></tr>
+            </thead>
+            <tbody id="procBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIMELINE ============ -->
+    <section class="panel" id="timeline">
+      <h2 class="page-title">Timeline, Milestones &amp; Stage Gates</h2>
+      <p class="page-sub">Sixteen-week schedule with overlapping analytical workstreams, two in-country missions and four gates at which a formal no-objection is required before the next phase is billed.</p>
+
+      <div class="gantt">
+        <div class="gantt-inner">
+          <div class="g-row" id="ganttHead"></div>
+          <div id="ganttBody"></div>
+        </div>
+      </div>
+
+      <div class="grid g4" style="margin-top:16px">
+        <div class="kpi k-blue"><div class="kpi-val">Day 9</div><div class="kpi-lab">Gate 1 · D1 submitted</div></div>
+        <div class="kpi k-blue"><div class="kpi-val">Week 5</div><div class="kpi-lab">Gate 2 · D2 validated</div></div>
+        <div class="kpi k-amber"><div class="kpi-val">Week 11</div><div class="kpi-lab">Gate 3 · D3 reviewed</div></div>
+        <div class="kpi k-green"><div class="kpi-val">Week 16</div><div class="kpi-lab">Gate 4 · D4 approval-ready</div></div>
+      </div>
+    </section>
+
+    <!-- ============ COMPLIANCE ============ -->
+    <section class="panel" id="compliance">
+      <h2 class="page-title">Compliance &amp; Submission Readiness</h2>
+      <p class="page-sub">Every mandatory TOR requirement mapped to evidence, plus the submission checklist for this Expression of Interest.</p>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>REOI submission checklist</h3>
+          <span class="pill p-blue" id="compPill">0 / 12 complete</span>
+        </div>
+        <div id="compList"></div>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+          <button class="btn btn-ghost" onclick="resetCompliance()">Reset checklist</button>
+          <button class="btn btn-primary" onclick="window.print()">Export submission pack</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Requirement → evidence map</h3></div>
+        <div class="tbl-wrap" style="box-shadow:none">
+          <table>
+            <thead><tr><th style="width:300px">TOR requirement</th><th>How it is met</th></tr></thead>
+            <tbody>
+              <tr><td><b>Advanced degree</b> in economics, public policy, international development, business, finance, law, climate policy or directly relevant field</td><td>Degree in Accounting, Universidad de Camagüey (1986). PMP, Project Management Institute (2010–present, good standing).</td></tr>
+              <tr><td><b>8+ years</b> in project preparation, private-sector development, public policy or institutional reform, including donor- or development-financed operations</td><td>35+ years. Named operations: UNDP MSME Capacity Building Grenada (2015); EU-funded E-business Incubators SVG (Steinbeis); EU-funded ICT Skills Audit St Lucia; IBM / Government of Grenada US$2.1M education project; IT Training Project St Kitts; National E-Readiness Assessment St Kitts; National ICT Strategic Plan Grenada (2000).</td></tr>
+              <tr><td><b>Design of TOC, results frameworks, budgets, implementation arrangements, procurement plans, risk matrices, M&amp;E frameworks</b></td><td><b>Four prototype M&amp;E/MRV systems built by the consultant in response to Caribbean and SIDS development operation TORs:</b> GCFT Portal (climate &amp; gender finance tagging — CC+/GCF requirements); Dominica CREP M&amp;E MIS (GCF-funded DOMCREP); Grenada UBEC M&amp;E MIS (World Bank P171833); Belize Blue Economy MRV System (IDB BL-T1194). Each prototype operationalises a results framework, indicator set, means of verification, and reporting cycle. This demonstrates applied TOR interpretation and systems design capability.</td></tr>
+              <tr><td><b>Integration of climate resilience or climate action</b></td><td>GCFT Portal prototype includes climate budget tagging as a core data model function. Belize Blue Economy MRV prototype includes capital tracking against Blue Bond and Sustainable Ocean Plan. Dominica CREP MIS prototype supports GCF-funded climate resilience operation M&amp;E.</td></tr>
+              <tr><td><b>Integration of gender equality and inclusion</b></td><td>GCFT Portal prototype includes gender budget tagging as a core data model function.</td></tr>
+              <tr><td><b>Institutional sustainability</b></td><td>Four prototype systems designed for handover to national institutions. National ICT Strategic Plan Grenada. E-Readiness training delivered to public servants. Strategic Management training to public officers in St Kitts &amp; Nevis, Ministry of Agriculture Grenada, Ministry of Trade Grenada.</td></tr>
+              <tr><td><b>Caribbean development knowledge</b></td><td>Grenada (1986–2004), SVG (2004–2008), St Lucia (2008–2009, 2012–2014, present), St Kitts &amp; Nevis (2009–2011, 2013–2015, 2016–present). OECS regional experience.</td></tr>
+              <tr><td><b>Multi-stakeholder engagement</b></td><td>Director, SVG Chamber of Commerce; Member, VAT Implementation Committee 2007; UNDP MSME project; public-sector training across four countries.</td></tr>
+              <tr><td><b>Policy and legislative gap analysis</b></td><td>Team Leader, Evaluation Study on Fiscal Incentive Environment for ICT-driven Business Development — assessed 11 structural, legal, and regulatory measures. VAT implementation consulting St Lucia and St Kitts.</td></tr>
+              <tr><td><b>Development bank guidelines and harmonized procurement</b></td><td><b>Belize Blue Economy MRV prototype responds to IDB BL-T1194 requirements. Grenada UBEC M&amp;E MIS prototype responds to World Bank P171833 requirements. GCFT Portal prototype responds to CC+/GCF requirements.</b> IBM / Government of Grenada procurement. PMP project management standards.</td></tr>
+              <tr><td><b>English proficiency</b></td><td>Native / excellent.</td></tr>
+              <tr><td><b>Citizenship</b></td><td>Grenada — IDB member country and CC+ beneficiary country.</td></tr>
+              <tr><td><b>Consanguinity</b></td><td>Confirmed: no family members within prohibited degrees at IDB, IDB Invest, or IDB Lab.</td></tr>
+              <tr><td><b>Contract type &amp; duration</b></td><td>Accepts lump-sum, deliverable-based contract; available four months, off-site, with authorised travel to Dominica.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Submission details</h3></div>
+        <div class="grid g2">
+          <div>
+            <ul class="clean">
+              <li><b>To:</b> CompeteCaribbean@IADB.ORG</li>
+              <li><b>Copy:</b> Amanda Charles — Acharles@iadb.org</li>
+              <li><b>Subject line:</b> REOI - Project Development Support for Dominica</li>
+              <li><b>From:</b> cuthbert@oecstrading.com</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="clean">
+              <li class="a"><b>Questions deadline:</b> October 9, 2026</li>
+              <li class="a"><b>Submission deadline:</b> October 15, 2026, 5:00pm AST</li>
+              <li><b>Attachments:</b> Cover letter (max 2 pages) · CV · two references · proposed lump-sum fee</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="foot">
+      Compete Caribbean+ · Pillar 2 — Dominica · B. Cuthbert John, PMP · Individual Consultant · Project Development Support<br>
+      Operational Hub prepared in response to the IDB / Compete Caribbean+ Request for Expressions of Interest.
+    </div>
+  </main>
+</div>
+
+<div class="sticky-progress">
+  <b style="color:var(--ink);font-size:12.3px">Assignment readiness</b>
+  <div class="sp-track"><div class="sp-fill" id="stickyFill" style="width:0%"></div></div>
+  <span id="stickyPct" style="font-weight:800;color:var(--navy)">0%</span>
+</div>
+
+<script>
+var store = (function(){
+  try{ localStorage.setItem('__t','1'); localStorage.removeItem('__t'); return localStorage; }
+  catch(e){ var mem={}; return { getItem:function(k){return mem[k]||null;}, setItem:function(k,v){mem[k]=String(v);}, removeItem:function(k){delete mem[k];} }; }
+})();
+
+var navBtns = document.querySelectorAll('.nav-btn');
+var panels  = document.querySelectorAll('.panel');
+function goTo(id){
+  panels.forEach(function(p){ p.classList.toggle('active', p.id === id); });
+  navBtns.forEach(function(b){ b.classList.toggle('active', b.dataset.target === id); });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+navBtns.forEach(function(b){ b.addEventListener('click', function(){ goTo(b.dataset.target); }); });
+document.querySelectorAll('[data-goto]').forEach(function(el){
+  el.addEventListener('click', function(){
+    goTo(el.dataset.goto);
+    if(el.dataset.phase !== undefined){
+      var idx = parseInt(el.dataset.phase,10);
+      document.querySelectorAll('.phase-card').forEach(function(c){
+        if(c.closest('#workflow')) c.classList.toggle('active', parseInt(c.dataset.phase,10) === idx);
+      });
+      renderPhase(idx);
+    }
+  });
+});
+
+var METHODS = [
+  {t:'Frame the assignment', d:'Lock scope, methodology, timeline and governance with the designated counterpart and CC+ Facility Coordination Unit. Establish the evidence library and information-gap register.', tags:['Inception protocol','RACI','Work planning']},
+  {t:'Review evidence and diagnose', d:'Systematically review CC+ guidance, IDB policies, national strategies, legislation, institutional assessments, diagnostics and evaluations. Confirm the development problem and its drivers.', tags:['Document review','Policy gap analysis','Institutional assessment']},
+  {t:'Map and consult stakeholders', d:'Map actors on influence and interest, then consult through bilateral sessions, workshops and focus groups. Capture participation disaggregated by sex, age and sector.', tags:['Stakeholder mapping','Consultation','Validation workshops']},
+  {t:'Build the theory of change', d:'Construct a causal chain from the binding governance constraint to private-sector impact, testing each link against evidence and stating the assumptions that must hold.', tags:['TOC','Problem tree','Assumptions testing']},
+  {t:'Design results and indicators', d:'Translate outcomes into SMART indicators with baselines, targets, means of verification, assumptions and monitoring arrangements aligned to the CC+ results framework.', tags:['Results framework','Indicator design','M&E']},
+  {t:'Design implementation, budget and procurement', d:'Define components, activities, beneficiaries, governance and execution arrangements, implementation schedule, detailed budget and procurement approach consistent with harmonized guidelines.', tags:['Component design','Costing','Procurement planning']},
+  {t:'Assure quality and validate', d:'Run quality-at-entry review, integrate climate, gender, inclusion, environmental and social considerations, build the risk matrix, then validate with the counterpart and CC+ and revise against consolidated comments.', tags:['Quality-at-entry','Risk matrix','Comment-response matrix']}
+];
+document.getElementById('methodGrid').innerHTML = METHODS.map(function(m,i){
+  return '<div class="method-card"><div class="m-num">'+(i+1)+'</div><h4>'+m.t+'</h4><p>'+m.d+'</p><div>'+m.tags.map(function(x){return '<span class="tool-tag">'+x+'</span>';}).join('')+'</div></div>';
+}).join('');
+
+var PHASES = [
+  {key:'Phase 01', title:'Mobilise & Frame', deliverable:'Deliverable 1 — Inception Report and Work Plan', due:'Within 9 calendar days of contract signature', payment:'10%', weeks:'Weeks 1–2',
+   purpose:'Establish a shared understanding of the assignment, lock the methodology, and agree the consultation and delivery plan with the designated counterpart and the CC+ Facility Coordination Unit.',
+   activities:['Review the CC+ proposal, results framework, operating guidance, relevant Pillar 2 documentation, and applicable IDB policies and procedures','Review national concept notes and relevant strategies, legislation, institutional assessments, diagnostics, evaluations and ongoing initiatives in Dominica','Confirm development issues and opportunities, affected groups, institutional challenges, climate-related constraints, gender and inclusion gaps, and the rationale for CC+ support','Prepare and agree a work plan detailing methodology, consultations, responsibilities, mission requirements, milestones and timelines','Establish the information-gap register and evidence library'],
+   tools:['Document review protocol','Evidence grading (Tier 1–5)','RACI matrix','Risk-screening at inception','Information-gap register'],
+   outputs:['Inception Report','Agreed Work Plan','Stakeholder Engagement Plan','Mission schedule','Document and evidence index'],
+   gate:'Gate 1 — Counterpart and CC+ no-objection on the Inception Report and Work Plan before Phase 2 commences.',
+   raci:'Consultant: Responsible · CC+ Facility Coordination Unit: Accountable · Designated national counterpart: Consulted · Stakeholders: Informed'},
+  {key:'Phase 02', title:'Diagnose & Design', deliverable:'Deliverable 2 — Project Design Framework (TC Abstract)', due:'Week 5', payment:'20%', weeks:'Weeks 2–5',
+   purpose:'Convert the priority concept into a validated problem analysis, theory of change and results architecture, grounded in consultation and evidence.',
+   activities:['Map and consult key stakeholders — designated counterpart, ministries and agencies, private-sector organisations, firms, academia, civil society and development partners','Coordinate and lead consultation and validation workshops and meetings','Assess complementarities, duplication risks, lessons from comparable interventions, implementation constraints and leverage opportunities with national, regional, IDB or partner initiatives','Identify gaps in existing concepts and collect the technical, institutional, financial and results information required for design','Develop a clear theory of change, results framework, indicators, baselines, targets, means of verification, assumptions and monitoring arrangements aligned with the CC+ results framework'],
+   tools:['Stakeholder power/interest mapping','Problem tree and causal analysis','Theory of change / logic model','Institutional capacity assessment','Policy and legislative gap analysis','Gender and social impact assessment','Climate change impact assessment','Donor complementarity mapping'],
+   outputs:['Validated problem analysis','Stakeholder map and engagement record','Theory of change','Concise project concept note with component structure','Draft budget envelope','Draft risk assessment','Draft results matrix framework'],
+   gate:'Gate 2 — Validation of the Project Design Framework with the counterpart and CC+ before full drafting begins.',
+   raci:'Consultant: Responsible · Designated national counterpart: Co-owner · CC+ Facility Coordination Unit: Accountable · Stakeholders: Consulted'},
+  {key:'Phase 03', title:'Draft the Package', deliverable:'Deliverable 3 — First Draft Project Proposal (TC Document Package)', due:'Week 11', payment:'40%', weeks:'Weeks 5–11',
+   purpose:'Produce a complete first draft in the CC+ project proposal format with every required annex, ready for structured review.',
+   activities:['Define project components, activities, beneficiaries, governance and execution arrangements, procurement approach, implementation schedule and detailed budget','Integrate gender equality and inclusion, climate resilience, environmental and social considerations, institutional strengthening, knowledge dissemination, sustainability and scalability throughout the design','Prepare a risk matrix covering technical, institutional, fiduciary, stakeholder, climate, sustainability and implementation risks with proportionate mitigation measures','Draft the complete project proposal and all required annexes','Internal quality-at-entry review before submission'],
+   tools:['Component and activity design','Detailed costing and budget architecture','Procurement planning (harmonized guidelines)','Risk matrix and mitigation design','Results matrix with monitoring arrangements','Sustainability and scaling strategy','Terms of reference drafting'],
+   outputs:['Complete first draft project proposal','Detailed activities and implementation arrangements','Detailed budget','Procurement plan','Risk matrix','Results matrix with monitoring arrangements','Terms of reference','Sustainability and scaling strategy','Climate, gender and inclusion integration annexes'],
+   gate:'Gate 3 — Structured review of the first draft by the counterpart and CC+ with consolidated written comments.',
+   raci:'Consultant: Responsible · CC+ Facility Coordination Unit: Accountable · Counterpart: Reviewer · IDB specialists: Consulted'},
+  {key:'Phase 04', title:'Validate & Finalise', deliverable:'Deliverable 4 — Final Project Proposal (TC Document Package)', due:'Week 16', payment:'30%', weeks:'Weeks 11–16',
+   purpose:'Address all consolidated comments, close remaining information gaps, and deliver an approval-ready package.',
+   activities:['Facilitate validation with the counterpart and CC+','Consolidate and respond to all comments in a comment-response matrix','Revise the package and annexes, closing outstanding information gaps','Final quality-at-entry assurance and compliance check against IDB policies and CC+ guidance','Prepare the submission-ready package for the applicable CC+ review and approval process'],
+   tools:['Comment-response matrix','Quality-at-entry checklist','Compliance verification','Final consistency audit (budget–activities–results)','Approval-readiness review'],
+   outputs:['Finalised project proposal','Complete final annex package','Comment-response matrix','Approval-ready submission'],
+   gate:'Gate 4 — Final quality-assured package accepted and ready for the applicable CC+ review and approval process.',
+   raci:'Consultant: Responsible · CC+ Facility Coordination Unit: Accountable · Counterpart: Endorsing · IDB: Approving'}
+];
+
+var wfList = document.getElementById('wfList');
+var wfDetail = document.getElementById('wfDetail');
+function buildWfList(){
+  wfList.innerHTML = PHASES.map(function(p,i){
+    return '<button class="wf-item' + (i===0?' active':'') + '" data-i="'+i+'"><b>'+p.key+' · '+p.title+'</b><span>'+p.weeks+' · '+p.payment+' payment</span></button>';
+  }).join('');
+  wfList.querySelectorAll('.wf-item').forEach(function(b){
+    b.addEventListener('click', function(){
+      wfList.querySelectorAll('.wf-item').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      renderPhase(parseInt(b.dataset.i,10));
+    });
+  });
+}
+function renderPhase(i){
+  var p = PHASES[i]; if(!p) return;
+  var html = '';
+  html += '<div class="eyebrow">'+p.key+' · '+p.weeks+'</div>';
+  html += '<h3>'+p.title+'</h3>';
+  html += '<div class="wf-sub"><b>'+p.deliverable+'</b> &nbsp;·&nbsp; Due '+p.due+' &nbsp;·&nbsp; Payment '+p.payment+'</div>';
+  html += '<p style="font-size:13.05px;color:#33455F">'+p.purpose+'</p>';
+  html += '<div class="two-col" style="margin-top:6px">';
+  html += '<div><h4 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:9px">Key activities</h4><ul class="clean">';
+  p.activities.forEach(function(a){ html += '<li>'+a+'</li>'; });
+  html += '</ul></div>';
+  html += '<div><h4 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:9px">Outputs</h4><ul class="clean">';
+  p.outputs.forEach(function(o){ html += '<li class="g">'+o+'</li>'; });
+  html += '</ul>';
+  html += '<h4 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin:14px 0 9px">Tools applied</h4><div>';
+  p.tools.forEach(function(t){ html += '<span class="tool-tag">'+t+'</span>'; });
+  html += '</div></div></div>';
+  html += '<div style="margin-top:14px"><h4 style="font-size:12.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:9px">Responsibility</h4><div style="font-size:12.55px;color:#33455F">'+p.raci+'</div></div>';
+  html += '<div class="gate"><b>'+p.gate.split('—')[0]+'</b><p>'+p.gate.split('—').slice(1).join('—').trim()+'</p></div>';
+  wfDetail.innerHTML = html;
+}
+buildWfList(); renderPhase(0);
+
+var DELIVERABLES = [
+  {id:'d1', badge:'D1 · 10%', cls:'', title:'Inception Report and Work Plan', due:'Within 9 calendar days of contract signature',
+   desc:'Concise assessment of the assignment, document review, methodology, stakeholder engagement plan, information gaps, responsibilities, mission requirements, work schedule and proposed structure of the project package.',
+   tasks:['Document review completed (CC+ guidance, Pillar 2 docs, IDB policies)','National concept notes, strategies, legislation and diagnostics reviewed','Methodology and analytical approach documented','Stakeholder engagement plan drafted','Information-gap register established','Mission requirements and responsibilities agreed','Work schedule and milestones set','Proposed structure of the project package outlined']},
+  {id:'d2', badge:'D2 · 20%', cls:'d2', title:'Project Design Framework (TC Abstract)', due:'Week 5',
+   desc:'Validated problem analysis, stakeholder map, theory of change, concise project concept note with component structure, budget, risks and draft results matrix framework including indicators, baselines, targets, assumptions and means of verification.',
+   tasks:['Problem analysis validated with counterpart','Stakeholder map completed and consultations held','Theory of change developed and agreed','Concept note with component structure drafted','Indicative budget envelope prepared','Draft risk assessment prepared','Draft results matrix with indicators and baselines','Validation workshop facilitated and documented']},
+  {id:'d3', badge:'D3 · 40%', cls:'d3', title:'First Draft Project Proposal (TC Document Package)', due:'Week 11',
+   desc:'Complete first draft in the CC+ project proposal format with all required annexes: detailed activities, implementation arrangements, budget, procurement plan, risk matrix, results matrix with monitoring arrangements, terms of reference, sustainability and scaling strategy, and integrated climate, gender and inclusion considerations.',
+   tasks:['Components and activities fully specified','Beneficiaries defined and disaggregated','Governance and execution arrangements detailed','Procurement plan prepared','Implementation schedule prepared','Detailed budget prepared and internally consistent','Risk matrix with proportionate mitigation completed','Results matrix with monitoring arrangements completed','Terms of reference drafted for key positions','Sustainability and scaling strategy drafted','Climate, gender and inclusion integration evidenced throughout','All required annexes drafted','Internal quality-at-entry review completed']},
+  {id:'d4', badge:'D4 · 30%', cls:'d4', title:'Final Project Proposal (TC Document Package)', due:'Week 16',
+   desc:'Finalised, quality-assured project proposal and annex package that addresses consolidated comments from the counterpart and CC+ and is ready for the applicable CC+ review and approval process.',
+   tasks:['Consolidated comments logged in comment-response matrix','All comments addressed or formally resolved','Outstanding information gaps closed or flagged','Final consistency audit (budget–activities–results) passed','Compliance check against IDB policies and CC+ guidance passed','Final quality-assured package submitted']}
+];
+
+var delGrid = document.getElementById('delGrid');
+function buildDeliverables(){
+  delGrid.innerHTML = DELIVERABLES.map(function(d){
+    var tasks = d.tasks.map(function(t,i){
+      var key = 'task_'+d.id+'_'+i;
+      var checked = store.getItem(key) === '1' ? ' checked' : '';
+      var done = checked ? ' done' : '';
+      return '<label class="task'+done+'" data-key="'+key+'"><input type="checkbox" data-key="'+key+'"'+checked+'><span>'+t+'</span></label>';
+    }).join('');
+    return '<div class="del-card"><div class="del-top"><div><span class="del-badge '+d.cls+'">'+d.badge+'</span><h4 style="margin-top:9px">'+d.title+'</h4></div></div><div class="del-desc">'+d.desc+'</div><div style="font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:8px">DUE: '+d.due.toUpperCase()+'</div><div class="prog"><i data-bar="'+d.id+'" style="width:0%"></i></div><div class="prog-lab"><span data-lab="'+d.id+'">0%</span><span>'+d.tasks.length+' sub-tasks</span></div><div>'+tasks+'</div></div>';
+  }).join('');
+  delGrid.querySelectorAll('input[type=checkbox]').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      var key = cb.dataset.key;
+      if(cb.checked){ store.setItem(key,'1'); } else { store.removeItem(key); }
+      cb.closest('.task').classList.toggle('done', cb.checked);
+      updateProgress();
+    });
+  });
+}
+function updateProgress(){
+  var totalTasks = 0, doneTasks = 0;
+  DELIVERABLES.forEach(function(d){
+    var done = 0;
+    d.tasks.forEach(function(t,i){ if(store.getItem('task_'+d.id+'_'+i) === '1') done++; });
+    totalTasks += d.tasks.length; doneTasks += done;
+    var pct = Math.round((done / d.tasks.length) * 100);
+    var bar = document.querySelector('[data-bar="'+d.id+'"]');
+    var lab = document.querySelector('[data-lab="'+d.id+'"]');
+    if(bar) bar.style.width = pct + '%';
+    if(lab) lab.textContent = pct + '%';
+  });
+  var overall = totalTasks ? Math.round((doneTasks/totalTasks)*100) : 0;
+  ['overallBar','stickyFill'].forEach(function(id){ var el = document.getElementById(id); if(el) el.style.width = overall + '%'; });
+  ['overallPct','stickyPct'].forEach(function(id){ var el = document.getElementById(id); if(el) el.textContent = overall + '%'; });
+}
+function resetTasks(){
+  DELIVERABLES.forEach(function(d){ d.tasks.forEach(function(t,i){ store.removeItem('task_'+d.id+'_'+i); }); });
+  buildDeliverables(); updateProgress();
+}
+
+var QUADRANTS = [
+  {cls:'q1', title:'Manage Closely', sub:'High influence · High interest',
+   items:['Designated national counterpart / climate finance focal point','Ministry of Finance, Economic Development & Planning','Ministry of Environment, Rural Modernisation & Kalinago Upliftment','CC+ Facility Coordination Unit','Dominica Chamber of Commerce & Industry','Ministry of Agriculture, Fisheries, Blue & Green Economy']},
+  {cls:'q2', title:'Keep Satisfied', sub:'High influence · Lower interest',
+   items:['Office of the Prime Minister','Caribbean Development Bank','FCDO / Government of Canada / IDB Country Office','Dominica Export Import Agency (DEXIA)','Physical Planning Division','National Disaster Management Organisation']},
+  {cls:'q3', title:'Keep Informed', sub:'Lower influence · High interest',
+   items:['Dominica Association of Industry & Commerce','Smallholder farmer cooperatives','Dominica Hotel & Tourism Association','UWI Open Campus / Dominica State College','Dominica Youth Business Trust','Kalinago Council','Women-led enterprise networks','Fisherfolk and blue-economy associations']},
+  {cls:'q4', title:'Monitor', sub:'Lower influence · Lower interest',
+   items:['National media','General public','CARICOM Secretariat / CDF','OECS Commission','Regional research institutions','Private finance and insurance sector']}
+];
+function buildQuadrants(){
+  document.getElementById('quadGrid').innerHTML = QUADRANTS.map(function(q){
+    return '<div class="quad '+q.cls+'"><h4>'+q.title+'</h4><div class="q-sub">'+q.sub+'</div><div class="chips">'+ q.items.map(function(it){ return '<span class="chip">'+it+'</span>'; }).join('') +'</div></div>';
+  }).join('');
+}
+buildQuadrants();
+document.getElementById('stakeSearch').addEventListener('input', function(){
+  var q = this.value.toLowerCase().trim();
+  document.querySelectorAll('#quadGrid .chip').forEach(function(ch){
+    ch.classList.toggle('hide', q !== '' && ch.textContent.toLowerCase().indexOf(q) === -1);
+  });
+});
+
+var TOC = [
+  {h:'Inputs', n:['CC+ Pillar 2 technical assistance','National counterpart leadership','Stakeholder time and expertise','IDB and partner resources','Digital backbone (prototype-proven)']},
+  {h:'Activities', n:['Policy and legislative gap analysis','Institutional capacity assessment','Multi-stakeholder consultation','Design of governance strengthening measures','Design of climate-smart business services','Knowledge and data systems design']},
+  {h:'Outputs', n:['Strengthened legal and policy frameworks','Trained and equipped public institutions','Operational climate-smart service offer','Gender-responsive governance measures','Monitoring and knowledge products']},
+  {h:'Outcomes', n:['Government can formulate, implement and monitor climate policy affecting firms','More inclusive climate governance','Firms access climate-smart support','Improved enabling environment for climate-resilient private investment']},
+  {h:'Impact', n:['Gender-responsive sustainable growth of the Caribbean private sector','Enhanced climate resilience in Dominica','Replicable model across CC+ countries']}
+];
+document.getElementById('tocFlow').innerHTML = TOC.map(function(c){
+  return '<div class="toc-col"><h5>'+c.h+'</h5>'+c.n.map(function(x){ return '<div class="toc-node">'+x+'</div>'; }).join('')+'</div>';
+}).join('');
+
+var INDICATORS = [
+  {code:'IN-01', ind:'Legal or policy instruments strengthened or adopted that integrate climate action and private-sector competitiveness', area:'Institutional', base:'0', target:'2 instruments', mov:'Gazetted instruments, Cabinet decisions, policy registers'},
+  {code:'IN-02', ind:'Government entities with operational capacity to deliver climate-smart, gender-responsive business support services', area:'Institutional', base:'1', target:'4 entities', mov:'Capacity assessment scorecards, organograms, service records'},
+  {code:'IN-03', ind:'Private firms reporting improved access to climate-smart business support services', area:'Competitiveness', base:'0', target:'150 firms (≥40% women-led)', mov:'Beneficiary survey, service delivery logs, enterprise registry'},
+  {code:'IN-04', ind:'Share of women in decision-making roles in supported public-sector climate governance structures', area:'Gender', base:'25%', target:'40%', mov:'Committee rosters, HR records, meeting minutes'},
+  {code:'IN-05', ind:'Climate-smart measures integrated into national or sectoral plans (agriculture, tourism, blue economy, nature-based solutions)', area:'Climate', base:'0', target:'3 sectoral plans', mov:'Approved sectoral plans, ministry submissions'},
+  {code:'IN-06', ind:'Stakeholders participating in design and validation consultations, disaggregated by sex, age and sector', area:'Gender', base:'0', target:'120 (≥50% women)', mov:'Consultation registers, workshop attendance sheets, portal records'},
+  {code:'IN-07', ind:'Knowledge products and methodologies disseminated for replication across CC+ countries', area:'Institutional', base:'0', target:'4 products', mov:'Published knowledge products, portal analytics, dissemination log'},
+  {code:'IN-08', ind:'Budget execution rate of the operation against approved annual plan', area:'Fiduciary', base:'n/a', target:'≥85%', mov:'Financial reports, IDB disbursement records, audit reports'},
+  {code:'IN-09', ind:'Institutional sustainability arrangements confirmed (mandate, staffing, budget line) at project close', area:'Institutional', base:'0', target:'100% of components', mov:'Institutional agreements, budget circulars, sustainability plan'},
+  {code:'IN-10', ind:'Climate resilience contribution documented for each supported intervention', area:'Climate', base:'0', target:'100% of interventions', mov:'Climate rationale annex, screening records, M&E reports'}
+];
+var rfBody = document.getElementById('rfBody');
+var areaClass = { 'Institutional':'p-blue','Climate':'p-green','Competitiveness':'p-cyan','Gender':'p-violet','Fiduciary':'p-grey' };
+function renderRF(filter){
+  var rows = INDICATORS.filter(function(r){ return filter === 'all' || r.area === filter; });
+  rfBody.innerHTML = rows.map(function(r){
+    return '<tr><td><b>'+r.code+'</b></td><td>'+r.ind+'</td><td><span class="pill '+(areaClass[r.area]||'p-grey')+'">'+r.area+'</span></td><td>'+r.base+'</td><td><b>'+r.target+'</b></td><td>'+r.mov+'</td></tr>';
+  }).join('');
+}
+renderRF('all');
+document.querySelectorAll('#results .filt').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelectorAll('#results .filt').forEach(function(x){x.classList.remove('active');});
+    b.classList.add('active'); renderRF(b.dataset.f);
+  });
+});
+
+var RISKS = [
+  {id:'R1', t:'Limited counterpart capacity or competing priorities delay reviews and approvals', cat:'Institutional', l:4, i:4, m:'Early RACI agreement, embedded focal point, rolling review windows rather than single deadlines, pre-scheduled decision points.'},
+  {id:'R2', t:'Weak or unavailable baseline data for target sectors and indicators', cat:'Technical', l:4, i:3, m:'Triangulate national statistics, CC+ diagnostics and primary collection; use Tier 5 expert estimates only where flagged; build a data-collection plan into the project.'},
+  {id:'R3', t:'Stakeholder fatigue or low private-sector participation in consultations', cat:'Stakeholder', l:3, i:3, m:'Targeted outreach through business associations, hybrid in-person/virtual sessions, concise agendas, visible feedback loop showing influence on design.'},
+  {id:'R4', t:'Climate or natural hazard event disrupts the consultation and mission schedule', cat:'Climate', l:3, i:5, m:'Schedule around hurricane season where possible, maintain remote-delivery fallback, contingency weeks built into the Gantt, climate-proof design assumptions.'},
+  {id:'R5', t:'Procurement or fiduciary delays in downstream implementation', cat:'Fiduciary', l:3, i:4, m:'Harmonized procurement planning, realistic method selection by value band, early market assessment, advance drafting of terms of reference.'},
+  {id:'R6', t:'Gender and inclusion commitments diluted during design or approval', cat:'Sustainability', l:2, i:4, m:'Gender marker applied, ring-fenced budget lines (≥10%), dedicated gender action plan annex, inclusion indicators in the results matrix.'},
+  {id:'R7', t:'Duplication or overlap with other donor and national programmes', cat:'Sustainability', l:3, i:3, m:'Donor and initiative mapping, complementarity matrix, coordination through existing sector working groups.'},
+  {id:'R8', t:'Political or administrative change weakens ownership of the initiative', cat:'Institutional', l:2, i:4, m:'Multi-stakeholder ownership beyond a single ministry, institutional anchoring in a mandated entity, documented endorsement at each gate.'},
+  {id:'R9', t:'Scope creep as new stakeholder demands emerge during consultation', cat:'Implementation', l:3, i:2, m:'Agreed scope statement in the Inception Report, formal change-control note for any scope adjustment, CC+ unit sign-off.'}
+];
+function scoreClass(s){ if(s >= 16) return 'rd-high'; if(s >= 8) return 'rd-med'; return 'rd-low'; }
+function buildRiskGrid(){
+  var grid = document.getElementById('riskGrid'); var html = '';
+  html += '<div class="rg-label"></div>';
+  for(var c=1;c<=5;c++){ html += '<div class="rg-label">Impact '+c+'</div>'; }
+  for(var l=5;l>=1;l--){
+    html += '<div class="rg-label">L'+l+'</div>';
+    for(var i=1;i<=5;i++){
+      var score = l*i;
+      var lvl = score>=16?5:(score>=12?4:(score>=8?3:(score>=4?2:1)));
+      var here = RISKS.filter(function(r){ return r.l===l && r.i===i; });
+      html += '<div class="rg-cell lvl-'+lvl+'">';
+      here.forEach(function(r){ html += '<div class="risk-dot '+scoreClass(r.l*r.i)+'" title="'+r.id+' · '+r.cat+' · Score '+(r.l*r.i)+' — '+r.t+'">'+r.id+'</div>'; });
+      html += '<span class="rc-num">'+score+'</span></div>';
+    }
+  }
+  grid.innerHTML = html;
+}
+buildRiskGrid();
+document.getElementById('riskBody').innerHTML = RISKS.map(function(r){
+  var s = r.l*r.i; var cls = scoreClass(s);
+  var pill = cls === 'rd-high' ? 'p-red' : (cls === 'rd-med' ? 'p-amber' : 'p-green');
+  var label = cls === 'rd-high' ? 'High' : (cls === 'rd-med' ? 'Medium' : 'Low');
+  return '<tr><td><b>'+r.id+'</b></td><td>'+r.t+'</td><td><span class="pill p-grey">'+r.cat+'</span></td><td>'+r.l+'</td><td>'+r.i+'</td><td><span class="pill '+pill+'">'+s+' · '+label+'</span></td><td>'+r.m+'</td></tr>';
+}).join('');
+
+var BUDGET = [
+  {lab:'Climate-smart business services & private-sector support', pct:30, col:'linear-gradient(90deg,#0B7C3C,#12A150)'},
+  {lab:'Institutional & policy strengthening', pct:25, col:'linear-gradient(90deg,#0057B8,#2C7BE5)'},
+  {lab:'Knowledge, data & digital backbone', pct:13, col:'linear-gradient(90deg,#0084B8,#00A3E0)'},
+  {lab:'Gender equality & inclusion (ring-fenced)', pct:12, col:'linear-gradient(90deg,#4B34B8,#8A74F0)'},
+  {lab:'Project management & coordination', pct:12, col:'linear-gradient(90deg,#B87800,#E9A81F)'},
+  {lab:'M&E, audits & safeguards', pct:8, col:'linear-gradient(90deg,#5A6B85,#94A3B8)'}
+];
+document.getElementById('budgetBars').innerHTML = BUDGET.map(function(b){
+  return '<div class="bar-row"><div class="bar-lab">'+b.lab+'</div><div class="bar-track"><div class="bar-fill" style="width:'+b.pct+'%;background:'+b.col+'"></div></div><div class="bar-val">'+b.pct+'%</div></div>';
+}).join('');
+
+var PROC = [
+  {p:'Technical assistance — institutional & policy strengthening', m:'QCBS / SSS', ph:'Year 1'},
+  {p:'Climate-smart business support services facility', m:'QCBS', ph:'Year 1–2'},
+  {p:'Digital backbone and knowledge platform development', m:'QCBS / LCS', ph:'Year 1'},
+  {p:'Goods and equipment for beneficiary institutions', m:'Shopping / RFQ', ph:'Year 1–2'},
+  {p:'Baseline study, M&E and evaluation services', m:'LCS', ph:'Year 1 & 3'},
+  {p:'Gender and inclusion specialist services', m:'SSS / IC', ph:'Year 1–2'},
+  {p:'Audit services', m:'LCS', ph:'Annual'}
+];
+document.getElementById('procBody').innerHTML = PROC.map(function(x){
+  return '<tr><td>'+x.p+'</td><td><span class="pill p-blue">'+x.m+'</span></td><td>'+x.ph+'</td></tr>';
+}).join('');
+
+var GANTT = [
+  {lab:'Phase 1 — Mobilise & Frame',      start:1,  len:2,  cls:'gb-blue',   txt:'Inception & work plan'},
+  {lab:'Document & evidence review',      start:1,  len:3,  cls:'gb-cyan',   txt:'Review & evidence library'},
+  {lab:'Stakeholder mapping & consultations', start:2, len:4, cls:'gb-violet', txt:'Consultations'},
+  {lab:'Mission 1 — Dominica (in-country)', start:4, len:1, cls:'gb-amber',  txt:'Mission 1'},
+  {lab:'Problem analysis & theory of change', start:3, len:3, cls:'gb-green', txt:'TOC & problem analysis'},
+  {lab:'D2 — Project Design Framework',   start:5,  len:1,  cls:'gb-blue',   txt:'D2 · 20%'},
+  {lab:'Component, budget & procurement design', start:6, len:5, cls:'gb-cyan', txt:'Detailed design'},
+  {lab:'Risk & results matrix development', start:7, len:4, cls:'gb-violet', txt:'Risk & results'},
+  {lab:'Mission 2 — Dominica (validation)', start:9, len:1, cls:'gb-amber', txt:'Mission 2'},
+  {lab:'D3 — First Draft Project Proposal', start:11, len:1, cls:'gb-blue', txt:'D3 · 40%'},
+  {lab:'Consolidated review & comment response', start:12, len:2, cls:'gb-violet', txt:'Review & response'},
+  {lab:'Final QA & compliance assurance',  start:14, len:2, cls:'gb-green',  txt:'QA assurance'},
+  {lab:'D4 — Final Project Proposal',      start:16, len:1, cls:'gb-blue',   txt:'D4 · 30%'}
+];
+(function buildGantt(){
+  var head = document.getElementById('ganttHead');
+  var h = '<div class="g-lab" style="font-weight:800;color:#3A4C6B">Workstream</div>';
+  for(var w=1;w<=16;w++){ h += '<div class="g-head">W'+w+'</div>'; }
+  head.innerHTML = h;
+  var body = document.getElementById('ganttBody');
+  var bodyHtml = GANTT.map(function(g){
+    var row = '<div class="g-row"><div class="g-lab">'+g.lab+'</div>';
+    for(var w=1;w<=16;w++){
+      if(w === g.start){ row += '<div class="g-bar '+g.cls+'" style="grid-column:span '+g.len+'">'+g.txt+'</div>'; w += (g.len - 1); }
+      else { row += '<div class="g-cell"></div>'; }
+    }
+    row += '</div>'; return row;
+  }).join('');
+  var milestones = {5:'◆', 11:'◆', 16:'◆'};
+  var mrow = '<div class="g-row"><div class="g-lab" style="font-weight:800;color:#3A4C6B">Stage gates</div>';
+  for(var w=1;w<=16;w++){
+    if(milestones[w]){ mrow += '<div class="g-milestone" title="Gate at week '+w+'">'+milestones[w]+'</div>'; }
+    else { mrow += '<div class="g-cell"></div>'; }
+  }
+  mrow += '</div>';
+  body.innerHTML = bodyHtml + mrow;
+})();
+
+var COMP = [
+  {k:'c1', t:'Cover letter prepared (maximum two pages)', s:'Expresses interest and summarises relevant experience, including similar Caribbean assignments.'},
+  {k:'c2', t:'Updated curriculum vitae prepared', s:'Highlights qualifications and experience mapped to every TOR requirement.'},
+  {k:'c3', t:'Two professional references confirmed', s:'Contact details verified and consent obtained.'},
+  {k:'c4', t:'Proposed lump-sum fee stated', s:'Full assignment fee, inclusive of all professional costs.'},
+  {k:'c5', t:'Citizenship eligibility confirmed', s:'Citizen of an IDB member country or a CC+ beneficiary country.'},
+  {k:'c6', t:'Consanguinity declaration confirmed', s:'No family members up to the fourth degree of consanguinity and second degree of affinity working at IDB, IDB Invest or IDB Lab.'},
+  {k:'c7', t:'Availability confirmed for four months, off-site', s:'With travel to Dominica if required and authorised in advance.'},
+  {k:'c8', t:'Deliverable-based payment schedule accepted', s:'D1 10% · D2 20% · D3 40% · D4 30%.'},
+  {k:'c9', t:'Email prepared with correct recipients and subject line', s:'To CompeteCaribbean@IADB.ORG, copied to Acharles@iadb.org, subject "REOI - Project Development Support for Dominica".'},
+  {k:'c10', t:'Submitted before deadline', s:'October 15, 2026 at 5:00pm AST. Questions submitted by October 9, 2026.'},
+  {k:'c11', t:'FCCA reference removed', s:'Degree in Accounting is the correct credential. No FCCA designation claimed.'},
+  {k:'c12', t:'M&E / MRV prototypes documented as prototypes', s:'Four prototype systems listed with live URLs, clearly labelled as prototypes built in response to development operation TORs.'}
+];
+function buildComp(){
+  document.getElementById('compList').innerHTML = COMP.map(function(c){
+    var checked = store.getItem('comp_'+c.k) === '1';
+    return '<label class="check-item'+(checked?' done':'')+'" data-k="'+c.k+'"><input type="checkbox" data-k="'+c.k+'"'+(checked?' checked':'')+'><span><b>'+c.t+'</b><small>'+c.s+'</small></span></label>';
+  }).join('');
+  document.querySelectorAll('#compList input[type=checkbox]').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      var k = cb.dataset.k;
+      if(cb.checked){ store.setItem('comp_'+k,'1'); } else { store.removeItem('comp_'+k); }
+      cb.closest('.check-item').classList.toggle('done', cb.checked); updateCompPill();
+    });
+  });
+  updateCompPill();
+}
+function updateCompPill(){
+  var done = 0; COMP.forEach(function(c){ if(store.getItem('comp_'+c.k) === '1') done++; });
+  document.getElementById('compPill').textContent = done + ' / ' + COMP.length + ' complete';
+}
+function resetCompliance(){ COMP.forEach(function(c){ store.removeItem('comp_'+c.k); }); buildComp(); }
+
+buildDeliverables(); updateProgress(); buildComp();
+
+document.addEventListener('keydown', function(e){
+  if(e.target.tagName === 'INPUT') return;
+  var ids = Array.prototype.map.call(navBtns, function(b){ return b.dataset.target; });
+  var current = ids.indexOf(document.querySelector('.nav-btn.active').dataset.target);
+  if(e.key === 'ArrowRight' && current < ids.length - 1) goTo(ids[current+1]);
+  if(e.key === 'ArrowLeft' && current > 0) goTo(ids[current-1]);
+});
+</script>
+</body>
+</html>
